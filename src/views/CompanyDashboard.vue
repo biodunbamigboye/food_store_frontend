@@ -4,7 +4,7 @@
   </div>
 </template>
 <script>
-import SideMenu from "../components/SideMenu.vue"
+import SideMenu from "../components/AsideMenu.vue"
 export default {
   name: 'CompanyDashboard',
   components: {
