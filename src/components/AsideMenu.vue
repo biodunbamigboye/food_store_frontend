@@ -1,12 +1,10 @@
 <script>
-import AsideMenuList from './AsideMenuList.vue'
-import CardBox from './CardBox.vue'
+import AsideMenuList from './AsideMenuList.vue';
 
 export default {
   name: 'AsideMenu',
   components: {
-    AsideMenuList,
-    CardBox
+    AsideMenuList
   }
 }
 </script>
@@ -36,6 +34,5 @@ export default {
       </svg>
     </button>
     <AsideMenuList />
-    <CardBox />
   </div>
 </template>

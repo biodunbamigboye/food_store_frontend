@@ -1,8 +1,17 @@
-<script setup>
-import {ref} from 'vue'
-
-const email = ref("")
-const password = ref("")
+<script>
+export default{
+  data(){
+    return{
+      email: "",
+      password: ""
+    }
+  },
+  method:{
+    login(){
+      
+    }
+  }
+};
 </script>
 
 <template>
