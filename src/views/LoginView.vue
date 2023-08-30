@@ -1,16 +1,15 @@
-<script>
-export default{
-  data(){
-    return{
-      email: "",
-      password: ""
-    }
-  },
-  method:{
-    login(){
-      
-    }
-  }
+<script setup>
+import { ref } from 'vue';
+import { useStore } from 'vuex';
+
+const email = ref('');
+const password = ref('');
+
+const store = useStore();
+
+const login = () => {
+  // Dispatch login action from Vuex
+  store.dispatch('login', { email: email.value, password: password.value });
 };
 </script>
 
@@ -70,6 +69,7 @@ export default{
 
           <div>
             <button
+             @click="login"
               type="submit"
               class="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
             >

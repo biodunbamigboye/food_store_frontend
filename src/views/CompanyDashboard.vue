@@ -1,7 +1,7 @@
 <template>
   <div class="company-dashyboard flex-1">
-    <SideMenu/>
-    <card-box/>
+    <SideMenu class="w-1/4"/>
+    <CardBox class="w-3/4" />
   </div>
 </template>
 <script>
