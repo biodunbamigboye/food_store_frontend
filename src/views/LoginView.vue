@@ -1,15 +1,36 @@
-<script setup>
-import { ref } from 'vue';
-import { useStore } from 'vuex';
+<script>
+export default {
+  name: "LoginView", 
+  computed: {
+    loggedIn() {
+      return this.$store.state.auth.status.loggedIn;
+    },
+  },
+  created() {
+    if (this.loggedIn) {
+      this.$router.push("/dashboard");
+    }
+  },
+  methods: {
+    handleLogin(user) {
+      this.loading = true;
 
-const email = ref('');
-const password = ref('');
-
-const store = useStore();
-
-const login = () => {
-  // Dispatch login action from Vuex
-  store.dispatch('login', { email: email.value, password: password.value });
+      this.$store.dispatch("auth/login", user).then(
+        () => {
+          this.$router.push("/dashboard");
+        },
+        (error) => {
+          this.loading = false;
+          this.message =
+            (error.response &&
+              error.response.data &&
+              error.response.data.message) ||
+            error.message ||
+            error.toString();
+        }
+      );
+    },
+  },
 };
 </script>
 
@@ -25,7 +46,7 @@ const login = () => {
       </div>
 
       <div class="mt-10 sm:mx-auto sm:w-full sm:max-w-sm">
-        <form class="space-y-6" action="#" method="POST">
+        <form class="space-y-6" @submit.prevent="handleLogin">
           <div>
             <label for="email" class="block text-sm font-medium leading-6 text-gray-900"
               >Email address</label
@@ -69,7 +90,6 @@ const login = () => {
 
           <div>
             <button
-             @click="login"
               type="submit"
               class="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
             >
