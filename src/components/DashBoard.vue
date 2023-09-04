@@ -16,6 +16,14 @@ export default {
     </div>
     
       <div class="container">
+        <div class="u-flex u-main-space-between u-cross-center">
+          <h2 class="u-padding-block-12 u-font-size-32 u-bold">Overview</h2>
+          <div>
+            <button class="">
+              <span>Star on GitHub</span>
+            </button>
+          </div>
+        </div>
         <!-- Wallet Balance display start here -->
         <div>
           <ul
