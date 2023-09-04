@@ -1,38 +1,123 @@
-<script>
-import AsideMenuList from './AsideMenuList.vue';
+<script setup>
+import "@appwrite.io/pink"; 
+import "@appwrite.io/pink-icons";
 
-export default {
-  name: 'AsideMenu',
-  components: {
-    AsideMenuList
-  }
-}
+
+// const toggleSidebar = () => {
+//   isSidebarOpen.value = !isSidebarOpen.value;
+// };
 </script>
 
 <template>
-  <div>
+  <section class="sidebar-wrapper">
     <button
-      data-drawer-target="default-sidebar"
-      data-drawer-toggle="default-sidebar"
-      aria-controls="default-sidebar"
-      type="button"
-      class="inline-flex items-center p-2 mt-2 ml-3 text-sm text-gray-500 rounded-lg sm:hidden hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+      class="menu-button"
+      @click="toggleSidebar"
+      style="background-color: var(--color-neutral-0)"
     >
-      <span class="sr-only">Open sidebar</span>
-      <svg
-        class="w-6 h-6"
-        aria-hidden="true"
-        fill="currentColor"
-        viewBox="0 0 20 20"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          clip-rule="evenodd"
-          fill-rule="evenodd"
-          d="M2 4.75A.75.75 0 012.75 4h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 4.75zm0 10.5a.75.75 0 01.75-.75h7.5a.75.75 0 010 1.5h-7.5a.75.75 0 01-.75-.75zM2 10a.75.75 0 01.75-.75h14.5a.75.75 0 010 1.5H2.75A.75.75 0 012 10z"
-        ></path>
-      </svg>
+      <span class="icon-menu" style="font-size: 30px"></span>
     </button>
-    <AsideMenuList />
-  </div>
+    <div class="side-nav sidebar" :class="{ 'sidebar-open': isSidebarOpen }">
+      <Profile />
+      <div class="side-nav-main">
+        <section class="drop-section">
+          <ul class="drop-list">
+            <li class="drop-list-item">
+              <nuxt-link to="/dashboard" class="drop-button" exact>
+                <span class="icon-home" aria-hidden="true"></span>
+                <span class="text">Dashboard</span>
+              </nuxt-link>
+            </li>
+            <li class="drop-list-item">
+              <nuxt-link to="/wallet" class="drop-button">
+                <span class="icon-document" aria-hidden="true"></span>
+                <span class="text">Company</span>
+              </nuxt-link>
+            </li>
+            <li class="drop-list-item">
+              <nuxt-link to="/products" class="drop-button">
+                <span class="icon-user-group" aria-hidden="true"></span>
+                <span class="text">Users</span>
+              </nuxt-link>
+            </li>
+            <li class="drop-list-item">
+              <nuxt-link to="/courses" class="drop-button">
+                <span class="icon-briefcase" aria-hidden="true"></span>
+                <span class="text">Stock</span>
+              </nuxt-link>
+            </li>
+            <li class="drop-list-item">
+              <nuxt-link to="/sales" class="drop-button">
+                <span class="icon-chart-bar" aria-hidden="true"></span>
+                <span class="text">Stock Cycle</span>
+              </nuxt-link>
+            </li>
+            <li class="drop-list-item">
+              <nuxt-link to="/sales" class="drop-button">
+                <span class="icon-chart-bar" aria-hidden="true"></span>
+                <span class="text">Sales</span>
+              </nuxt-link>
+            </li>
+          </ul>
+        </section>
+        <div class="side-nav-bottom" style="padding-top: 30px">
+        <section class="drop-section">
+          <button class="drop-button" @click="logOut" type="button">
+            <span class="icon-logout-left" aria-hidden="true"></span>
+            <span class="text">Logout</span>
+          </button>
+        </section>
+      </div>
+      </div>
+      
+    </div>
+  </section>
 </template>
+
+<style>
+.sidebar-wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; 
+  flex: 0 0 auto;
+  width: 250px;
+}
+
+.sidebar {
+  position: fixed;
+  flex: 0 0 auto;
+  width: 250px;
+  flex: 1; /* Allow the sidebar to expand to fill the available height */
+  overflow-y: auto; /* Enable vertical scrolling if content overflows */
+  transition: width 0.3s ease; /* Add a smooth transition for width changes */
+}
+
+.sidebar-open {
+  width: 250px; /* Set the width to its original value when open */
+}
+
+.menu-button {
+  display: none; /* Hide the button by default */
+}
+
+@media (max-width: 768px) {
+  .sidebar-wrapper .sidebar {
+    width: 0; /* Set the width to zero when closed on mobile screens */
+  }
+
+  .sidebar-wrapper .sidebar-open {
+    width: 250px;
+    z-index: 999;
+  }
+
+  .sidebar-wrapper .menu-button {
+    display: block;
+  }
+}
+
+@media (min-width: 769px) {
+  .sidebar-wrapper .menu-button {
+    display: none;
+  }
+}
+</style>

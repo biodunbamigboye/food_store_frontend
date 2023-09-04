@@ -10,10 +10,13 @@
     "format": "prettier --write src/"
   },
   "dependencies": {
+    "@appwrite.io/pink": "^0.0.6-rc.15",
     "axios": "^1.5.0",
+    "chart.js": "^3.9.1",
     "pinia": "^2.1.4",
     "vee-validate": "^4.11.3",
     "vue": "^3.3.4",
+    "vue-chart-3": "^3.1.8",
     "vue-router": "^4.2.4",
     "vuex": "^4.1.0",
     "yup": "^1.2.0"

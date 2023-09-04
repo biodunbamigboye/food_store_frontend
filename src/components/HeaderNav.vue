@@ -1,108 +1,76 @@
 <template>
-  <nav class="bg-gray-50 dark:bg-gray-800">
-    <div class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
-      <div class="relative flex h-16 items-center justify-between">
-        <div class="absolute inset-y-0 left-0 flex items-center sm:hidden">
-          <!-- Mobile menu button-->
-        </div>
-        <div class="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
-    
-        </div>
-        <div
-          class="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0"
-        >
-          <button
-            type="button"
-            class="relative rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
-          >
-            <span class="absolute -inset-1.5"></span>
-            <span class="sr-only">View notifications</span>
-            <svg
-              class="h-6 w-6"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke-width="1.5"
-              stroke="currentColor"
-              aria-hidden="true"
+  <section style="flex: 1; width: 100%;">
+    <header class="main-header u-padding-inline-end-0 u-flex-shrink-0" :class="{ 'is-hidden-mobile': isMobile }">
+      <div class="logo is-only-mobile"></div>
+      <div
+        class="main-header-end u-margin-inline-end-16 menu-right TODO-MENU-RIGHT-ONLY-IF-SIGNED-IN"
+      >
+        <ul class="buttons-list is-with-padding">
+          <li class="buttons-list-item">
+            <button
+              style="padding-block: 0.32rem"
+              id="search-btn"
+              aria-label="search"
+              class="input-text u-flex u-cross-center u-padding-inline-8 u-border-radius-8"
+              on:click="q-e5eeb8f3.js#s_IXW4QUh7eEM[0]"
+              q:id="f"
             >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                d="M14.857 17.082a23.848 23.848 0 005.454-1.31A8.967 8.967 0 0118 9.75v-.7V9A6 6 0 006 9v.75a8.967 8.967 0 01-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 01-5.714 0m5.714 0a3 3 0 11-5.714 0"
-              />
-            </svg>
-          </button>
-
-          <!-- Profile dropdown -->
-          <div class="relative ml-3">
-            <div>
-              <button
-                type="button"
-                class="relative flex rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
-                id="user-menu-button"
-                aria-expanded="false"
-                aria-haspopup="true"
+              <span aria-hidden="true" class="icon-search"></span
+              ><span
+                aria-hidden="true"
+                class="text u-margin-inline-start-4 is-not-mobile"
+                >search</span
               >
-                <span class="absolute -inset-1.5"></span>
-                <span class="sr-only">Open user menu</span>
-                <img
-                  class="h-8 w-8 rounded-full"
-                  src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-                  alt=""
-                />
-              </button>
-            </div>
-
-            <!--
-            Dropdown menu, show/hide based on menu state.
-
-            Entering: "transition ease-out duration-100"
-              From: "transform opacity-0 scale-95"
-              To: "transform opacity-100 scale-100"
-            Leaving: "transition ease-in duration-75"
-              From: "transform opacity-100 scale-100"
-              To: "transform opacity-0 scale-95"
-          -->
-           
-          </div>
-        </div>
+              <div
+                class="u-flex u-cross-center u-gap-4 u-margin-inline-start-32 is-not-mobile"
+              >
+                <kbd id="meta" class="kbd">⌘</kbd><kbd class="kbd">K</kbd>
+              </div>
+            </button>
+          </li>
+          <li class="buttons-list-item u-padding-inline-0">
+            <button
+              class="button is-text"
+              on:click="q-e5eeb8f3.js#s_oEVNx2PNz7M[0]"
+              q:id="h"
+            >
+              <span class="icon-bell"></span>
+            </button>
+          </li>
+          <li
+            class="buttons-list-item u-flex u-cross-center"
+            q:key="sU_3"
+            style="padding-right: 30px"
+          >
+            <button
+              class="button is-secondary"
+              on:click="q-4b92f7a6.js#s_Ukif0X8yCFE"
+            >
+              <span aria-hidden="true" class="icon-user"></span
+              ><span class="text">Account</span>
+            </button>
+          </li>
+        </ul>
       </div>
-    </div>
-
-    <!-- Mobile menu, show/hide based on menu state. -->
-    <div class="sm:hidden" id="mobile-menu">
-      <div class="space-y-1 px-2 pb-3 pt-2">
-        <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
-        <a
-          href="#"
-          class="bg-gray-900 text-white block rounded-md px-3 py-2 text-base font-medium"
-          aria-current="page"
-          >Dashboard</a
-        >
-        <a
-          href="#"
-          class="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium"
-          >Team</a
-        >
-        <a
-          href="#"
-          class="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium"
-          >Projects</a
-        >
-        <a
-          href="#"
-          class="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium"
-          >Calendar</a
-        >
-      </div>
-    </div>
-  </nav>
+    </header>
+  </section>
 </template>
-
-<script>
+<script lang="ts">
 export default {
-  name: 'HeaderNav'
-}
+  data() {
+    return {
+      isMobile: false, // Set the initial value of isMobile
+    };
+  },
+};
 </script>
-
-<style></style>
+<style scoped>
+@media (max-width: 767px) {
+  .is-hidden-mobile {
+    display: none;
+  }
+  .main-header{
+    display: none;
+  }
+}
+</style>

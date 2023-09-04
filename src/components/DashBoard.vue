@@ -1,8 +1,20 @@
+<script>
+import HeaderNav from "./HeaderNav.vue";
+import "@appwrite.io/pink"; // optionally, add icons 
+import "@appwrite.io/pink-icons";
+
+export default {
+  components: { HeaderNav },
+  name: 'DashBoard'
+}
+
+</script>
 <template>
-    <section style="flex: 1">
-      <div>
-        <Header />
-      </div>
+  <section class="dashboard">
+    <div>
+      <header-nav/>
+    </div>
+    
       <div class="container">
         <!-- Wallet Balance display start here -->
         <div>
@@ -235,5 +247,31 @@
         </div>
         <!-- recent transactions ends here -->
       </div>
-    </section>
-  </template>
+      <!-- tab start -->
+      <TabContent />
+      <!-- tab ends here -->
+   
+  </section>
+</template>
+<style>
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 9999;
+}
+
+.modal {
+  position: relative;
+  width: 400px;
+  background-color: #fff;
+  padding: 20px;
+  z-index: 10000;
+}
+</style>

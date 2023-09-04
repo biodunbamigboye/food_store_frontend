@@ -6,7 +6,7 @@
 </template>
 <script>
 import SideMenu from "../components/AsideMenu.vue";
-import CardBox from '../components/CardBox.vue';
+import CardBox from '../components/DashBoard.vue';
 
 export default {
   name: 'CompanyDashboard',
