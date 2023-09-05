@@ -10,6 +10,11 @@ const router = createRouter({
       component: Login
     },
     {
+      meta: {
+        title: "Dashboard",
+        requiresAuth: true,
+        SuperAdmin: true,
+      },
       path: '/dashboard',
       name: 'dashboard',
       // route level code-splitting
@@ -18,6 +23,11 @@ const router = createRouter({
       component: () => import('../views/CompanyDashboard.vue')
     },
     {
+      meta: {
+        title: "CompanyForm",
+        requiresAuth: true,
+        SuperAdmin: true,
+      },
       path: '/create-stock',
       name: 'create-stock',
       component: () => import('../views/CompanyForm.vue')

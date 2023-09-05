@@ -2,9 +2,10 @@
 import HeaderNav from "./HeaderNav.vue";
 import "@appwrite.io/pink"; // optionally, add icons 
 import "@appwrite.io/pink-icons";
+import ChartLine from './Chart/ChartLine.vue';
 
 export default {
-  components: { HeaderNav },
+  components: { HeaderNav, ChartLine },
   name: 'DashBoard'
 }
 
@@ -38,7 +39,7 @@ export default {
               <div class="card">
                 <div class="grid-item-1">
                   <div class="grid-item-1-start-start">
-                    <div class="eyebrow-heading-3">Available Balance</div>
+                    <div class="eyebrow-heading-3">Total Sales</div>
                     <h2 class="heading-level-6 u-margin-block-start-8">
                       <span>$</span> 
                       <span>5,000</span>
@@ -76,7 +77,7 @@ export default {
               <div class="card">
                 <div class="grid-item-1">
                   <div class="grid-item-1-start-start">
-                    <div class="eyebrow-heading-3">Pending Balance</div>
+                    <div class="eyebrow-heading-3">Sales(Today)</div>
                     <h2 class="heading-level-6 u-margin-block-start-8">
                       <span>$</span> 5,000
                     </h2>
@@ -114,9 +115,9 @@ export default {
               <div class="card">
                 <div class="grid-item-1">
                   <div class="grid-item-1-start-start">
-                    <div class="eyebrow-heading-3"> Sales</div>
+                    <div class="eyebrow-heading-3"> Products</div>
                     <h2 class="heading-level-6 u-margin-block-start-8">
-                      <span>$</span>10,000
+                      <span></span>10
                     </h2>
                   </div>
                   <div class="grid-item-1-start-end">
@@ -158,6 +159,12 @@ export default {
           </ul>
         </div>
          <!-- Wallet Balance display ends here -->
+
+         <!-- chart start here -->
+         <div class="u-padding-16">
+          <chart-line/>
+         </div>
+         <!-- chart ends here -->
   
         <!-- recent transactions starts here -->
         <div class="u-padding-block-end-56">
@@ -281,5 +288,6 @@ export default {
   background-color: #fff;
   padding: 20px;
   z-index: 10000;
+  color: rgb(221, 14, 14);
 }
 </style>
