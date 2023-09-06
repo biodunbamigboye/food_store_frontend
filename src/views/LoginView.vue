@@ -1,7 +1,14 @@
 <script>
-import { getEnv } from "../helpers";
 export default {
   name: "LoginView", 
+  data() {
+    return {
+      email: "",
+      password: "",
+      loading: false,
+      message: "",
+    };
+  },
   computed: {
     loggedIn() {
       return this.$store.state.auth.status.loggedIn;
@@ -13,10 +20,13 @@ export default {
     }
   },
   methods: {
-    handleLogin(user) {
+    handleLogin() {
       this.loading = true;
 
-      this.$store.dispatch("auth/login", user).then(
+      this.$store.dispatch("auth/login", {
+        email: this.email,
+        password: this.password,
+      }).then(
         () => {
           this.$router.push("/dashboard");
         },
