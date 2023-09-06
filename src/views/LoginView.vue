@@ -1,4 +1,5 @@
 <script>
+import { getEnv } from "../helpers";
 export default {
   name: "LoginView", 
   computed: {

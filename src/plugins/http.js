@@ -3,7 +3,7 @@ import axios from "axios";
 import { getEnv } from "../helpers";
 
 export const axiosClient = axios.create({
-  baseURL: getEnv('VUE_APP_BASE_URL'),
+  baseURL: getEnv('VITE_BASE_URL'),
 });
 
 axiosClient.interceptors.request.use((config) => {
