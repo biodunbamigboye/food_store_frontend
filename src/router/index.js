@@ -1,5 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import Login from '../views/LoginView.vue'
+import authService from '../services/auth.service';
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -20,7 +21,8 @@ const router = createRouter({
       // route level code-splitting
       // this generates a separate chunk (About.[hash].js) for this route
       // which is lazy-loaded when the route is visited.
-      component: () => import('../views/CompanyDashboard.vue')
+      component: () => import('../views/CompanyDashboard.vue'),
+      meta: {requiresAuth: true}
     },
     {
       meta: {
@@ -33,6 +35,21 @@ const router = createRouter({
       component: () => import('../views/CompanyForm.vue')
     }
   ]
+});
+
+router.beforeEach((to, from, next) =>{
+  const store = authService;
+  if(to.meta.requiresAuth){
+    if(!store.user){
+      next({
+        name: "login"
+      })
+    }else{
+      next()
+    }
+  }else{
+    next()
+  }
 })
 
 export default router
