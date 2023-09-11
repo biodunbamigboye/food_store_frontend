@@ -29,25 +29,25 @@ import "@appwrite.io/pink-icons";
               </nuxt-link>
             </li>
             <li class="drop-list-item">
-              <nuxt-link to="/wallet" class="drop-button">
+              <nuxt-link to="/company" class="drop-button">
                 <span class="icon-document" aria-hidden="true"></span>
                 <span class="text">Company</span>
               </nuxt-link>
             </li>
             <li class="drop-list-item">
-              <nuxt-link to="/products" class="drop-button">
+              <nuxt-link to="/users" class="drop-button">
                 <span class="icon-user-group" aria-hidden="true"></span>
                 <span class="text">Users</span>
               </nuxt-link>
             </li>
             <li class="drop-list-item">
-              <nuxt-link to="/courses" class="drop-button">
+              <nuxt-link to="/stock" class="drop-button">
                 <span class="icon-briefcase" aria-hidden="true"></span>
                 <span class="text">Stock</span>
               </nuxt-link>
             </li>
             <li class="drop-list-item">
-              <nuxt-link to="/sales" class="drop-button">
+              <nuxt-link to="/stock-cycle" class="drop-button">
                 <span class="icon-chart-bar" aria-hidden="true"></span>
                 <span class="text">Stock Cycle</span>
               </nuxt-link>
