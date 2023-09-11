@@ -1,48 +1,52 @@
 <script>
 export default {
-  name: "LoginView", 
+  name: 'LoginView',
   data() {
     return {
-      email: "",
-      password: "",
+      email: '',
+      password: '',
       loading: false,
-      message: "",
-    };
+      message: ''
+    }
   },
   computed: {
     loggedIn() {
-      return this.$store.state.auth.status.loggedIn;
-    },
+      return this.$store.state.auth.status.loggedIn
+    }
   },
   created() {
     if (this.loggedIn) {
-      this.$router.push("/dashboard");
+      this.$router.push('/dashboard')
     }
   },
   methods: {
     handleLogin() {
-      this.loading = true;
+      this.loading = true
 
-      this.$store.dispatch("auth/login", {
-        email: this.email,
-        password: this.password,
-      }).then(
-        () => {
-          this.$router.push("/dashboard");
-        },
-        (error) => {
-          this.loading = false;
-          this.message =
-            (error.response &&
-              error.response.data &&
-              error.response.data.message) ||
-            error.message ||
-            error.toString();
-        }
-      );
-    },
-  },
-};
+      setTimeout(() => {
+        this.$store
+          .dispatch('auth/login', {
+            email: this.email,
+            password: this.password
+          })
+          .then(
+            () => {
+              this.$router.push('/dashboard')
+            },
+            (error) => {
+              this.loading = false
+              console.log(error)
+              this.message =
+                (error.response && error.response.data && error.response.data.message) ||
+                error.message ||
+                error.toString()
+                this.$swal('Invalid Credentials');
+            }
+          )
+      }, 5000)
+    }
+  }
+}
 </script>
 
 <template>
@@ -103,9 +107,11 @@ export default {
             <button
               type="submit"
               class="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+              :disabled="loading"
             >
               Sign in
             </button>
+            <p v-if="loading">Loading...</p>
           </div>
         </form>
       </div>

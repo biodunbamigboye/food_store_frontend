@@ -23,40 +23,40 @@ import "@appwrite.io/pink-icons";
         <section class="drop-section">
           <ul class="drop-list">
             <li class="drop-list-item">
-              <nuxt-link to="/dashboard" class="drop-button" exact>
+              <router-link to="/dashboard" class="drop-button" exact>
                 <span class="icon-home" aria-hidden="true"></span>
                 <span class="text">Dashboard</span>
-              </nuxt-link>
+              </router-link>
             </li>
             <li class="drop-list-item">
-              <nuxt-link to="/company" class="drop-button">
+              <router-link to="/company" class="drop-button">
                 <span class="icon-document" aria-hidden="true"></span>
                 <span class="text">Company</span>
-              </nuxt-link>
+              </router-link>
             </li>
             <li class="drop-list-item">
-              <nuxt-link to="/users" class="drop-button">
+              <router-link to="/users" class="drop-button">
                 <span class="icon-user-group" aria-hidden="true"></span>
                 <span class="text">Users</span>
-              </nuxt-link>
+              </router-link>
             </li>
             <li class="drop-list-item">
-              <nuxt-link to="/stock" class="drop-button">
+              <router-link to="/stocks" class="drop-button">
                 <span class="icon-briefcase" aria-hidden="true"></span>
                 <span class="text">Stock</span>
-              </nuxt-link>
+              </router-link>
             </li>
             <li class="drop-list-item">
-              <nuxt-link to="/stock-cycle" class="drop-button">
+              <router-link to="/stock-cycle" class="drop-button">
                 <span class="icon-chart-bar" aria-hidden="true"></span>
                 <span class="text">Stock Cycle</span>
-              </nuxt-link>
+              </router-link>
             </li>
             <li class="drop-list-item">
-              <nuxt-link to="/sales" class="drop-button">
+              <router-link to="/sales" class="drop-button">
                 <span class="icon-chart-bar" aria-hidden="true"></span>
                 <span class="text">Sales</span>
-              </nuxt-link>
+              </router-link>
             </li>
           </ul>
         </section>

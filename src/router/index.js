@@ -49,6 +49,26 @@ const router = createRouter({
       path: '/stocks',
       name: 'stocks',
       component: () => import('../views/CreateStockView.vue')
+    },
+    {
+      meta: {
+        title: 'Stock Cycle',
+        requiresAuth: true,
+        SuperAdmin: true
+      },
+      path: '/stock-cycle',
+      name: 'stock-cycle',
+      component: () => import('../views/CreateStockCycleView.vue')
+    },
+    {
+      meta: {
+        title: 'Sales',
+        requiresAuth: true,
+        SuperAdmin: true
+      },
+      path: '/sales',
+      name: 'sales',
+      component: () => import('../views/SalesView.vue')
     }
   ]
 })
