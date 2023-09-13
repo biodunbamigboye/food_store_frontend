@@ -1,10 +1,28 @@
 <template>
   <div>
-    <div class="u-padding-block-end-56">
-        <div class="container">
-          <div class="recent-transactions" style="padding-top: 25px">
-            <h1>List of Companies</h1>
+    <div>
+      <header-nav />
+    </div>
+    <div class="container">
+      <div class="">
+        <!-- add company form here -->
+        <div class="add_comp">
+          <h1 class="u-padding-block-12 u-font-size-32 u-bold">Add Company</h1>
+          <div>
+            <form class="form u-width-full-line u-max-width-500">
+              <ul class="form-list">
+                <li class="form-item">
+                  <div class="input-text-wrapper">
+                    <input type="text" class="input-text" placeholder="Company name" />
+                  </div>
+                </li>
+              </ul>
+            </form>
           </div>
+        </div>
+        <!-- list company section here -->
+        <div class="list-comp" style="padding-top: 25px">
+          <h2 class="u-padding-block-12 u-medium u-bold">List of Companies</h2>
           <div class="u-padding-block-12">
             <table class="table is-selected-columns-mobile">
               <thead class="table-thead">
@@ -72,15 +90,15 @@
           </div>
         </div>
       </div>
+    </div>
   </div>
 </template>
 
 <script>
+import HeaderNav from './HeaderNav.vue'
 export default {
-
+  components: { HeaderNav }
 }
 </script>
 
-<style>
-
-</style>
+<style></style>
