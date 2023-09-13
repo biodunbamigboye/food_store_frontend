@@ -111,7 +111,9 @@ export default {
             >
               Sign in
             </button>
-            <p v-if="loading">Loading...</p>
+            <!-- <p v-if="loading">Loading...</p> -->
+            <div class="loader" v-if="loading">Loading...</div>
+
           </div>
         </form>
       </div>
