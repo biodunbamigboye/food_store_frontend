@@ -5,7 +5,7 @@
     </div>
     <div class="container">
       <div class="">
-        <!-- add company form here -->
+        <!-- add company form section here -->
         <div class="add_comp">
           <h1 class="u-padding-block-12 u-font-size-32 u-bold">Add Company</h1>
           <div>
