@@ -6,7 +6,7 @@
 
     <div class="container">
       <div class="u-flex u-main-space-between u-cross-center">
-        <h2 class="u-padding-block-12 u-font-size-32 u-bold">Users</h2>
+        <h2 class="u-padding-block-12 u-font-size-32 u-bold">Create users</h2>
         <!-- <div>
           <button class="">
             <span>Star on GitHub</span>
