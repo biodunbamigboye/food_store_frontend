@@ -211,6 +211,11 @@ export default {
     return{
       company: "",
     }
+  },
+  methods:{
+    async createCompany(){
+      
+    }
   }
 }
 </script>
