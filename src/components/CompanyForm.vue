@@ -32,7 +32,7 @@
             <label class="block font-bold mb-2">Company name</label>
             <div class="">
               <div class="relative">
-                <input placeholder="Company's Name" type="text"
+                <input v-model.lazy="company" placeholder="Company's Name" type="text"
                   class="px-3 py-2 max-w-full focus:ring focus:outline-none border-gray-700 rounded w-full dark:placeholder-gray-400 h-12 border bg-white dark:bg-slate-800" /><!--v-if-->
               </div>
             </div>
@@ -51,6 +51,7 @@
               type="reset">
               <!--v-if--><span class="px-2">Reset</span>
             </button>
+            <p>{{ company }}</p>
           </div>
           <hr class="my-6 -mx-6 dark:border-slate-800 border-t border-gray-100 my-10" />
           <div class="flex z-50 items-center flex-col justify-center overflow-hidden fixed inset-0" style="display: none">
@@ -121,225 +122,80 @@
               </footer>
             </div>
           </div>
-          <table>
-            <thead>
-              <tr>
-                <!--v-if-->
-                <th></th>
-                <th>Name</th>
-                <th>Created At</th>
-                <th>Actions</th>
-                <th></th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <!--v-if-->
-                <td class="border-b-0 lg:w-6 before:hidden">
-                  <div class="w-24 h-24 mx-auto lg:w-6 lg:h-6">
-                    <img src="https://avatars.dicebear.com/api/avataaars/Hunnovate.svg" alt="Hunnovate"
-                      class="rounded-full block h-auto w-full max-w-full bg-gray-100 dark:bg-slate-800" />
-                  </div>
-                </td>
-                <td data-label="Name">Hunnovate</td>
-                <td data-label="Created At">2023-08-14T11:59:23.000000Z</td>
-                <td class="before:hidden lg:w-1 whitespace-nowrap">
-                  <div class="flex items-center justify-start lg:justify-end flex-nowrap -mb-3">
-                    <button
-                      class="inline-flex justify-center items-center whitespace-nowrap focus:outline-none transition-colors focus:ring duration-150 border cursor-pointer rounded border-blue-600 dark:border-blue-500 ring-blue-300 dark:ring-blue-700 bg-blue-600 dark:bg-blue-500 text-white hover:bg-blue-700 hover:border-blue-700 hover:dark:bg-blue-600 hover:dark:border-blue-600 p-1 mr-3 last:mr-0 mb-3"
-                      type="button">
-                      <span class="inline-flex justify-center items-center w-6 h-6"><svg viewBox="0 0 24 24" width="16"
-                          height="16" class="inline-block">
-                          <path fill="currentColor"
-                            d="M12,9A3,3 0 0,0 9,12A3,3 0 0,0 12,15A3,3 0 0,0 15,12A3,3 0 0,0 12,9M12,17A5,5 0 0,1 7,12A5,5 0 0,1 12,7A5,5 0 0,1 17,12A5,5 0 0,1 12,17M12,4.5C7,4.5 2.73,7.61 1,12C2.73,16.39 7,19.5 12,19.5C17,19.5 21.27,16.39 23,12C21.27,7.61 17,4.5 12,4.5Z">
-                          </path>
-                        </svg></span><!--v-if--></button><button
-                      class="inline-flex justify-center items-center whitespace-nowrap focus:outline-none transition-colors focus:ring duration-150 border cursor-pointer rounded border-emerald-600 dark:border-emerald-500 ring-emerald-300 dark:ring-emerald-700 bg-emerald-600 dark:bg-emerald-500 text-white hover:bg-emerald-700 hover:border-emerald-700 hover:dark:bg-emerald-600 hover:dark:border-emerald-600 p-1 mr-3 last:mr-0 mb-3"
-                      type="button">
-                      <span class="inline-flex justify-center items-center w-6 h-6"><svg viewBox="0 0 24 24" width="16"
-                          height="16" class="inline-block">
-                          <path fill="currentColor"
-                            d="M20.71,7.04C21.1,6.65 21.1,6 20.71,5.63L18.37,3.29C18,2.9 17.35,2.9 16.96,3.29L15.12,5.12L18.87,8.87M3,17.25V21H6.75L17.81,9.93L14.06,6.18L3,17.25Z">
-                          </path>
-                        </svg></span><!--v-if--></button><button
-                      class="inline-flex justify-center items-center whitespace-nowrap focus:outline-none transition-colors focus:ring duration-150 border cursor-pointer rounded border-red-600 dark:border-red-500 ring-red-300 dark:ring-red-700 bg-red-600 dark:bg-red-500 text-white hover:bg-red-700 hover:border-red-700 hover:dark:bg-red-600 hover:dark:border-red-600 p-1 mr-3 last:mr-0 mb-3"
-                      type="button">
-                      <span class="inline-flex justify-center items-center w-6 h-6"><svg viewBox="0 0 24 24" width="16"
-                          height="16" class="inline-block">
-                          <path fill="currentColor"
-                            d="M9,3V4H4V6H5V19A2,2 0 0,0 7,21H17A2,2 0 0,0 19,19V6H20V4H15V3H9M9,8H11V17H9V8M13,8H15V17H13V8Z">
-                          </path>
-                        </svg></span><!--v-if-->
+           <!-- recent transactions starts here -->
+      <div class="u-padding-block-end-56">
+        <div class="">
+          <div class="recent-transactions" style="padding-top: 25px">
+            <h1>Companies</h1>
+          </div>
+          <div class="u-padding-block-12">
+            <table class="table is-selected-columns-mobile">
+              <thead class="table-thead">
+                <tr class="table-row">
+                  <th class="table-thead-col" style="--p-col-width: 100">
+                    <span class="eyebrow-heading-3">ID</span>
+                  </th>
+                  <th class="table-thead-col is-only-desktop" style="--p-col-width: 150" >
+                    <span class="eyebrow-heading-3">Company name</span>
+                  </th>
+                  <th class="table-thead-col is-only-desktop" style="--p-col-width: 140">
+                    <span class="eyebrow-heading-3">No of users</span>
+                  </th>
+                  <th class="table-thead-col is-only-desktop" style="--p-col-width: 120">
+                    <span class="eyebrow-heading-3">Date</span>
+                  </th>
+                  <th class="table-thead-col" style="--p-col-width: 40"></th>
+                </tr>
+              </thead>
+              <tbody class="table-tbody">
+                <tr class="table-row">
+                  <td class="table-col" data-title="Refrences">
+                    <div class="u-inline-flex u-cross-center u-gap-12">
+                      <span class="text u-break-word u-line-height-1-5">airport.jpg</span>
+                    </div>
+                  </td>
+                  <td class="table-col is-only-desktop" data-title="Details">
+                    <div class="text"><span class="text">image/jpeg</span></div>
+                  </td>
+                  <td class="table-col is-only-desktop" data-title="Amount">
+                    <span class="tag">$ 350.5</span>
+                  </td>
+                  <td class="table-col is-only-desktop" data-title="Date">
+                    <time class="text">11 Mar 2022</time>
+                  </td>
+                  <td class="table-col u-overflow-visible">
+                    <button class="button is-text is-only-icon" aria-label="more options">
+                      <span class="icon-dots-horizontal" aria-hidden="true"></span>
                     </button>
-                  </div>
-                </td>
-              </tr>
-              <tr>
-                <!--v-if-->
-                <td class="border-b-0 lg:w-6 before:hidden">
-                  <div class="w-24 h-24 mx-auto lg:w-6 lg:h-6">
-                    <img src="https://avatars.dicebear.com/api/avataaars/Scarlett.svg" alt="Scarlett"
-                      class="rounded-full block h-auto w-full max-w-full bg-gray-100 dark:bg-slate-800" />
-                  </div>
-                </td>
-                <td data-label="Name">Scarlett</td>
-                <td data-label="Created At">2023-08-14T11:59:23.000000Z</td>
-                <td class="before:hidden lg:w-1 whitespace-nowrap">
-                  <div class="flex items-center justify-start lg:justify-end flex-nowrap -mb-3">
-                    <button
-                      class="inline-flex justify-center items-center whitespace-nowrap focus:outline-none transition-colors focus:ring duration-150 border cursor-pointer rounded border-blue-600 dark:border-blue-500 ring-blue-300 dark:ring-blue-700 bg-blue-600 dark:bg-blue-500 text-white hover:bg-blue-700 hover:border-blue-700 hover:dark:bg-blue-600 hover:dark:border-blue-600 p-1 mr-3 last:mr-0 mb-3"
-                      type="button">
-                      <span class="inline-flex justify-center items-center w-6 h-6"><svg viewBox="0 0 24 24" width="16"
-                          height="16" class="inline-block">
-                          <path fill="currentColor"
-                            d="M12,9A3,3 0 0,0 9,12A3,3 0 0,0 12,15A3,3 0 0,0 15,12A3,3 0 0,0 12,9M12,17A5,5 0 0,1 7,12A5,5 0 0,1 12,7A5,5 0 0,1 17,12A5,5 0 0,1 12,17M12,4.5C7,4.5 2.73,7.61 1,12C2.73,16.39 7,19.5 12,19.5C17,19.5 21.27,16.39 23,12C21.27,7.61 17,4.5 12,4.5Z">
-                          </path>
-                        </svg></span><!--v-if--></button><button
-                      class="inline-flex justify-center items-center whitespace-nowrap focus:outline-none transition-colors focus:ring duration-150 border cursor-pointer rounded border-emerald-600 dark:border-emerald-500 ring-emerald-300 dark:ring-emerald-700 bg-emerald-600 dark:bg-emerald-500 text-white hover:bg-emerald-700 hover:border-emerald-700 hover:dark:bg-emerald-600 hover:dark:border-emerald-600 p-1 mr-3 last:mr-0 mb-3"
-                      type="button">
-                      <span class="inline-flex justify-center items-center w-6 h-6"><svg viewBox="0 0 24 24" width="16"
-                          height="16" class="inline-block">
-                          <path fill="currentColor"
-                            d="M20.71,7.04C21.1,6.65 21.1,6 20.71,5.63L18.37,3.29C18,2.9 17.35,2.9 16.96,3.29L15.12,5.12L18.87,8.87M3,17.25V21H6.75L17.81,9.93L14.06,6.18L3,17.25Z">
-                          </path>
-                        </svg></span><!--v-if--></button><button
-                      class="inline-flex justify-center items-center whitespace-nowrap focus:outline-none transition-colors focus:ring duration-150 border cursor-pointer rounded border-red-600 dark:border-red-500 ring-red-300 dark:ring-red-700 bg-red-600 dark:bg-red-500 text-white hover:bg-red-700 hover:border-red-700 hover:dark:bg-red-600 hover:dark:border-red-600 p-1 mr-3 last:mr-0 mb-3"
-                      type="button">
-                      <span class="inline-flex justify-center items-center w-6 h-6"><svg viewBox="0 0 24 24" width="16"
-                          height="16" class="inline-block">
-                          <path fill="currentColor"
-                            d="M9,3V4H4V6H5V19A2,2 0 0,0 7,21H17A2,2 0 0,0 19,19V6H20V4H15V3H9M9,8H11V17H9V8M13,8H15V17H13V8Z">
-                          </path>
-                        </svg></span><!--v-if-->
+                  </td>
+                </tr>
+                <tr class="table-row">
+                  <td class="table-col" data-title="Refrences">
+                    <div class="u-inline-flex u-cross-center u-gap-12">
+                      <span class="text u-break-word u-line-height-1-5">airport.jpg</span>
+                    </div>
+                  </td>
+                  <td class="table-col is-only-desktop" data-title="Details">
+                    <div class="text"><span class="text">image/jpeg</span></div>
+                  </td>
+                  <td class="table-col is-only-desktop" data-title="Amount">
+                    <span class="tag">$ 350.5</span>
+                  </td>
+                  <td class="table-col is-only-desktop" data-title="Date">
+                    <time class="text">11 Mar 2022</time>
+                  </td>
+                  <td class="table-col u-overflow-visible">
+                    <button class="button is-text is-only-icon" aria-label="more options">
+                      <span class="icon-dots-horizontal" aria-hidden="true"></span>
                     </button>
-                  </div>
-                </td>
-              </tr>
-              <tr>
-                <!--v-if-->
-                <td class="border-b-0 lg:w-6 before:hidden">
-                  <div class="w-24 h-24 mx-auto lg:w-6 lg:h-6">
-                    <img src="https://avatars.dicebear.com/api/avataaars/Default.svg" alt="Default"
-                      class="rounded-full block h-auto w-full max-w-full bg-gray-100 dark:bg-slate-800" />
-                  </div>
-                </td>
-                <td data-label="Name">Default</td>
-                <td data-label="Created At">2023-08-14T11:59:23.000000Z</td>
-                <td class="before:hidden lg:w-1 whitespace-nowrap">
-                  <div class="flex items-center justify-start lg:justify-end flex-nowrap -mb-3">
-                    <button
-                      class="inline-flex justify-center items-center whitespace-nowrap focus:outline-none transition-colors focus:ring duration-150 border cursor-pointer rounded border-blue-600 dark:border-blue-500 ring-blue-300 dark:ring-blue-700 bg-blue-600 dark:bg-blue-500 text-white hover:bg-blue-700 hover:border-blue-700 hover:dark:bg-blue-600 hover:dark:border-blue-600 p-1 mr-3 last:mr-0 mb-3"
-                      type="button">
-                      <span class="inline-flex justify-center items-center w-6 h-6"><svg viewBox="0 0 24 24" width="16"
-                          height="16" class="inline-block">
-                          <path fill="currentColor"
-                            d="M12,9A3,3 0 0,0 9,12A3,3 0 0,0 12,15A3,3 0 0,0 15,12A3,3 0 0,0 12,9M12,17A5,5 0 0,1 7,12A5,5 0 0,1 12,7A5,5 0 0,1 17,12A5,5 0 0,1 12,17M12,4.5C7,4.5 2.73,7.61 1,12C2.73,16.39 7,19.5 12,19.5C17,19.5 21.27,16.39 23,12C21.27,7.61 17,4.5 12,4.5Z">
-                          </path>
-                        </svg></span><!--v-if--></button><button
-                      class="inline-flex justify-center items-center whitespace-nowrap focus:outline-none transition-colors focus:ring duration-150 border cursor-pointer rounded border-emerald-600 dark:border-emerald-500 ring-emerald-300 dark:ring-emerald-700 bg-emerald-600 dark:bg-emerald-500 text-white hover:bg-emerald-700 hover:border-emerald-700 hover:dark:bg-emerald-600 hover:dark:border-emerald-600 p-1 mr-3 last:mr-0 mb-3"
-                      type="button">
-                      <span class="inline-flex justify-center items-center w-6 h-6"><svg viewBox="0 0 24 24" width="16"
-                          height="16" class="inline-block">
-                          <path fill="currentColor"
-                            d="M20.71,7.04C21.1,6.65 21.1,6 20.71,5.63L18.37,3.29C18,2.9 17.35,2.9 16.96,3.29L15.12,5.12L18.87,8.87M3,17.25V21H6.75L17.81,9.93L14.06,6.18L3,17.25Z">
-                          </path>
-                        </svg></span><!--v-if--></button><button
-                      class="inline-flex justify-center items-center whitespace-nowrap focus:outline-none transition-colors focus:ring duration-150 border cursor-pointer rounded border-red-600 dark:border-red-500 ring-red-300 dark:ring-red-700 bg-red-600 dark:bg-red-500 text-white hover:bg-red-700 hover:border-red-700 hover:dark:bg-red-600 hover:dark:border-red-600 p-1 mr-3 last:mr-0 mb-3"
-                      type="button">
-                      <span class="inline-flex justify-center items-center w-6 h-6"><svg viewBox="0 0 24 24" width="16"
-                          height="16" class="inline-block">
-                          <path fill="currentColor"
-                            d="M9,3V4H4V6H5V19A2,2 0 0,0 7,21H17A2,2 0 0,0 19,19V6H20V4H15V3H9M9,8H11V17H9V8M13,8H15V17H13V8Z">
-                          </path>
-                        </svg></span><!--v-if-->
-                    </button>
-                  </div>
-                </td>
-              </tr>
-              <tr>
-                <!--v-if-->
-                <td class="border-b-0 lg:w-6 before:hidden">
-                  <div class="w-24 h-24 mx-auto lg:w-6 lg:h-6">
-                    <img src="https://avatars.dicebear.com/api/avataaars/Aditya.svg" alt="Aditya"
-                      class="rounded-full block h-auto w-full max-w-full bg-gray-100 dark:bg-slate-800" />
-                  </div>
-                </td>
-                <td data-label="Name">Aditya</td>
-                <td data-label="Created At">2023-08-14T11:59:24.000000Z</td>
-                <td class="before:hidden lg:w-1 whitespace-nowrap">
-                  <div class="flex items-center justify-start lg:justify-end flex-nowrap -mb-3">
-                    <button
-                      class="inline-flex justify-center items-center whitespace-nowrap focus:outline-none transition-colors focus:ring duration-150 border cursor-pointer rounded border-blue-600 dark:border-blue-500 ring-blue-300 dark:ring-blue-700 bg-blue-600 dark:bg-blue-500 text-white hover:bg-blue-700 hover:border-blue-700 hover:dark:bg-blue-600 hover:dark:border-blue-600 p-1 mr-3 last:mr-0 mb-3"
-                      type="button">
-                      <span class="inline-flex justify-center items-center w-6 h-6"><svg viewBox="0 0 24 24" width="16"
-                          height="16" class="inline-block">
-                          <path fill="currentColor"
-                            d="M12,9A3,3 0 0,0 9,12A3,3 0 0,0 12,15A3,3 0 0,0 15,12A3,3 0 0,0 12,9M12,17A5,5 0 0,1 7,12A5,5 0 0,1 12,7A5,5 0 0,1 17,12A5,5 0 0,1 12,17M12,4.5C7,4.5 2.73,7.61 1,12C2.73,16.39 7,19.5 12,19.5C17,19.5 21.27,16.39 23,12C21.27,7.61 17,4.5 12,4.5Z">
-                          </path>
-                        </svg></span><!--v-if--></button><button
-                      class="inline-flex justify-center items-center whitespace-nowrap focus:outline-none transition-colors focus:ring duration-150 border cursor-pointer rounded border-emerald-600 dark:border-emerald-500 ring-emerald-300 dark:ring-emerald-700 bg-emerald-600 dark:bg-emerald-500 text-white hover:bg-emerald-700 hover:border-emerald-700 hover:dark:bg-emerald-600 hover:dark:border-emerald-600 p-1 mr-3 last:mr-0 mb-3"
-                      type="button">
-                      <span class="inline-flex justify-center items-center w-6 h-6"><svg viewBox="0 0 24 24" width="16"
-                          height="16" class="inline-block">
-                          <path fill="currentColor"
-                            d="M20.71,7.04C21.1,6.65 21.1,6 20.71,5.63L18.37,3.29C18,2.9 17.35,2.9 16.96,3.29L15.12,5.12L18.87,8.87M3,17.25V21H6.75L17.81,9.93L14.06,6.18L3,17.25Z">
-                          </path>
-                        </svg></span><!--v-if--></button><button
-                      class="inline-flex justify-center items-center whitespace-nowrap focus:outline-none transition-colors focus:ring duration-150 border cursor-pointer rounded border-red-600 dark:border-red-500 ring-red-300 dark:ring-red-700 bg-red-600 dark:bg-red-500 text-white hover:bg-red-700 hover:border-red-700 hover:dark:bg-red-600 hover:dark:border-red-600 p-1 mr-3 last:mr-0 mb-3"
-                      type="button">
-                      <span class="inline-flex justify-center items-center w-6 h-6"><svg viewBox="0 0 24 24" width="16"
-                          height="16" class="inline-block">
-                          <path fill="currentColor"
-                            d="M9,3V4H4V6H5V19A2,2 0 0,0 7,21H17A2,2 0 0,0 19,19V6H20V4H15V3H9M9,8H11V17H9V8M13,8H15V17H13V8Z">
-                          </path>
-                        </svg></span><!--v-if-->
-                    </button>
-                  </div>
-                </td>
-              </tr>
-              <tr>
-                <!--v-if-->
-                <td class="border-b-0 lg:w-6 before:hidden">
-                  <div class="w-24 h-24 mx-auto lg:w-6 lg:h-6">
-                    <img src="https://avatars.dicebear.com/api/avataaars/Frieda.svg" alt="Frieda"
-                      class="rounded-full block h-auto w-full max-w-full bg-gray-100 dark:bg-slate-800" />
-                  </div>
-                </td>
-                <td data-label="Name">Frieda</td>
-                <td data-label="Created At">2023-08-14T11:59:24.000000Z</td>
-                <td class="before:hidden lg:w-1 whitespace-nowrap">
-                  <div class="flex items-center justify-start lg:justify-end flex-nowrap -mb-3">
-                    <button
-                      class="inline-flex justify-center items-center whitespace-nowrap focus:outline-none transition-colors focus:ring duration-150 border cursor-pointer rounded border-blue-600 dark:border-blue-500 ring-blue-300 dark:ring-blue-700 bg-blue-600 dark:bg-blue-500 text-white hover:bg-blue-700 hover:border-blue-700 hover:dark:bg-blue-600 hover:dark:border-blue-600 p-1 mr-3 last:mr-0 mb-3"
-                      type="button">
-                      <span class="inline-flex justify-center items-center w-6 h-6"><svg viewBox="0 0 24 24" width="16"
-                          height="16" class="inline-block">
-                          <path fill="currentColor"
-                            d="M12,9A3,3 0 0,0 9,12A3,3 0 0,0 12,15A3,3 0 0,0 15,12A3,3 0 0,0 12,9M12,17A5,5 0 0,1 7,12A5,5 0 0,1 12,7A5,5 0 0,1 17,12A5,5 0 0,1 12,17M12,4.5C7,4.5 2.73,7.61 1,12C2.73,16.39 7,19.5 12,19.5C17,19.5 21.27,16.39 23,12C21.27,7.61 17,4.5 12,4.5Z">
-                          </path>
-                        </svg></span><!--v-if--></button><button
-                      class="inline-flex justify-center items-center whitespace-nowrap focus:outline-none transition-colors focus:ring duration-150 border cursor-pointer rounded border-emerald-600 dark:border-emerald-500 ring-emerald-300 dark:ring-emerald-700 bg-emerald-600 dark:bg-emerald-500 text-white hover:bg-emerald-700 hover:border-emerald-700 hover:dark:bg-emerald-600 hover:dark:border-emerald-600 p-1 mr-3 last:mr-0 mb-3"
-                      type="button">
-                      <span class="inline-flex justify-center items-center w-6 h-6"><svg viewBox="0 0 24 24" width="16"
-                          height="16" class="inline-block">
-                          <path fill="currentColor"
-                            d="M20.71,7.04C21.1,6.65 21.1,6 20.71,5.63L18.37,3.29C18,2.9 17.35,2.9 16.96,3.29L15.12,5.12L18.87,8.87M3,17.25V21H6.75L17.81,9.93L14.06,6.18L3,17.25Z">
-                          </path>
-                        </svg></span><!--v-if--></button><button
-                      class="inline-flex justify-center items-center whitespace-nowrap focus:outline-none transition-colors focus:ring duration-150 border cursor-pointer rounded border-red-600 dark:border-red-500 ring-red-300 dark:ring-red-700 bg-red-600 dark:bg-red-500 text-white hover:bg-red-700 hover:border-red-700 hover:dark:bg-red-600 hover:dark:border-red-600 p-1 mr-3 last:mr-0 mb-3"
-                      type="button">
-                      <span class="inline-flex justify-center items-center w-6 h-6"><svg viewBox="0 0 24 24" width="16"
-                          height="16" class="inline-block">
-                          <path fill="currentColor"
-                            d="M9,3V4H4V6H5V19A2,2 0 0,0 7,21H17A2,2 0 0,0 19,19V6H20V4H15V3H9M9,8H11V17H9V8M13,8H15V17H13V8Z">
-                          </path>
-                        </svg></span><!--v-if-->
-                    </button>
-                  </div>
-                </td>
-              </tr>
-            </tbody>
-          </table>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+      <!-- recent transactions ends here -->
           <div class="p-3 lg:px-6 border-t border-gray-100 dark:border-slate-800"><!----></div>
         </footer>
       </div>
@@ -350,7 +206,12 @@
 <script>
 import HeaderNav from './HeaderNav.vue'
 export default {
-  components: { HeaderNav }
+  components: { HeaderNav },
+  data(){
+    return{
+      company: "",
+    }
+  }
 }
 </script>
 
