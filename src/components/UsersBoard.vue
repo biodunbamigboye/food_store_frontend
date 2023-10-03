@@ -5,7 +5,7 @@
     </div>
 
     <div class="">
-      <!-- Wallet Balance display start here -->
+      <!-- Create users start here -->
       <div>
         <div class="add_user">
           <section class="p-6 xl:max-w-6xl xl:mx-auto">
@@ -38,7 +38,7 @@
                   <div class="grid grid-cols-1 gap-3 md:grid-cols-2">
                     <div class="relative">
                       <input placeholder="First_name" type="text"
-                        class="px-3 py-2 max-w-full focus:ring focus:outline-none border-gray-700 rounded w-full dark:placeholder-gray-400 h-12 border bg-white dark:bg-slate-800 pl-10" /><span
+                        class="inp px-8 py-2 max-w-full focus:ring focus:outline-none border-gray-700 rounded w-full dark:placeholder-gray-400 h-12 border bg-white dark:bg-slate-800 pl-10" /><span
                         class="inline-flex justify-center items-center w-10 h-12 absolute top-0 left-0 z-10 pointer-events-none text-gray-500 dark:text-slate-400"><svg
                           viewBox="0 0 24 24" width="16" height="16" class="inline-block">
                           <path fill="currentColor"
@@ -48,7 +48,7 @@
                     </div>
                     <div class="relative">
                       <input placeholder="Second_name" type="text"
-                        class="px-3 py-2 max-w-full focus:ring focus:outline-none border-gray-700 rounded w-full dark:placeholder-gray-400 h-12 border bg-white dark:bg-slate-800 pl-10" /><span
+                        class="inp px-3 py-2 max-w-full focus:ring focus:outline-none border-gray-700 rounded w-full dark:placeholder-gray-400 h-12 border bg-white dark:bg-slate-800 pl-10" /><span
                         class="inline-flex justify-center items-center w-10 h-12 absolute top-0 left-0 z-10 pointer-events-none text-gray-500 dark:text-slate-400"><svg
                           viewBox="0 0 24 24" width="16" height="16" class="inline-block">
                           <path fill="currentColor"
@@ -64,7 +64,7 @@
                   <div class="grid grid-cols-1 gap-3 md:grid-cols-2">
                     <div class="relative">
                       <input placeholder="Email" type="email"
-                        class="px-3 py-2 max-w-full focus:ring focus:outline-none border-gray-700 rounded w-full dark:placeholder-gray-400 h-12 border bg-white dark:bg-slate-800 pl-10" />
+                        class="inp px-3 py-2 max-w-full focus:ring focus:outline-none border-gray-700 rounded w-full dark:placeholder-gray-400 h-12 border bg-white dark:bg-slate-800 pl-10" />
                       <span
                         class="inline-flex justify-center items-center w-10 h-12 absolute top-0 left-0 z-10 pointer-events-none text-gray-500 dark:text-slate-400">
                         <svg viewBox="0 0 24 24" width="16" height="16" class="inline-block">
@@ -76,7 +76,7 @@
                     </div>
                     <div class="relative">
                       <input placeholder="Phone no" type="number"
-                        class="px-3 py-2 max-w-full focus:ring focus:outline-none border-gray-700 rounded w-full dark:placeholder-gray-400 h-12 border bg-white dark:bg-slate-800 pl-10" /><span
+                        class="inp px-3 py-2 max-w-full focus:ring focus:outline-none border-gray-700 rounded w-full dark:placeholder-gray-400 h-12 border bg-white dark:bg-slate-800 pl-10" /><span
                         class="inline-flex justify-center items-center w-10 h-12 absolute top-0 left-0 z-10 pointer-events-none text-gray-500 dark:text-slate-400"><svg
                           viewBox="0 0 24 24" width="16" height="16" class="inline-block">
                           <path fill="currentColor"
@@ -92,7 +92,7 @@
                   <div class="grid grid-cols-1 gap-3 md:grid-cols-2">
                     <div class="relative">
                       <select
-                        class="px-3 py-2 max-w-full focus:ring focus:outline-none border-gray-700 rounded w-full dark:placeholder-gray-400 h-12 border bg-white dark:bg-slate-800"></select><!--v-if-->
+                        class="inp px-3 py-2 max-w-full focus:ring focus:outline-none border-gray-700 rounded w-full dark:placeholder-gray-400 h-12 border bg-white dark:bg-slate-800"></select><!--v-if-->
                     </div>
                     <div class="relative">
                       <select
@@ -106,7 +106,7 @@
                   <div class="grid grid-cols-1 gap-3 md:grid-cols-2">
                     <div class="relative">
                       <input placeholder="Password" type="password"
-                        class="px-3 py-2 max-w-full focus:ring focus:outline-none border-gray-700 rounded w-full dark:placeholder-gray-400 h-12 border bg-white dark:bg-slate-800 pl-10" /><span
+                        class="inp px-3 py-2 max-w-full focus:ring focus:outline-none border-gray-700 rounded w-full dark:placeholder-gray-400 h-12 border bg-white dark:bg-slate-800 pl-10" /><span
                         class="inline-flex justify-center items-center w-10 h-12 absolute top-0 left-0 z-10 pointer-events-none text-gray-500 dark:text-slate-400"><svg
                           viewBox="0 0 24 24" width="16" height="16" class="inline-block">
                           <path fill="currentColor"
@@ -116,7 +116,7 @@
                     </div>
                     <div class="relative">
                       <input placeholder="Confirm Password" type="password"
-                        class="px-3 py-2 max-w-full focus:ring focus:outline-none border-gray-700 rounded w-full dark:placeholder-gray-400 h-12 border bg-white dark:bg-slate-800 pl-10" /><span
+                        class="inp px-3 py-2 max-w-full focus:ring focus:outline-none border-gray-700 rounded w-full dark:placeholder-gray-400 h-12 border bg-white dark:bg-slate-800 pl-10" /><span
                         class="inline-flex justify-center items-center w-10 h-12 absolute top-0 left-0 z-10 pointer-events-none text-gray-500 dark:text-slate-400"><svg
                           viewBox="0 0 24 24" width="16" height="16" class="inline-block">
                           <path fill="currentColor"
@@ -139,45 +139,98 @@
               </footer>
             </div>
             <hr class="my-6 -mx-6 dark:border-slate-800 border-t border-gray-100 mt-10" />
-           
-          </section>
 
-           <!--Import users table component here-->
-           <div class="mt-1">
-              <div>
-                <table>
-                  <thead>
-                    <tr>
-                      <!--v-if-->
-                      <th></th>
-                      <th>Firstname</th>
-                      <th>Lastname</th>
-                      <th>Company</th>
-                      <th>Usertype</th>
-                      <th>Actions</th>
-                      <th></th>
-                    </tr>
-                  </thead>
-                  <tbody></tbody>
-                </table>
-                <div class="p-3 lg:px-6 border-t border-gray-100 dark:border-slate-800">
-                  <!---->
+            <!-- list users table starts here -->
+            <div class="u-padding-block-end-56">
+              <div class="">
+                <div class="recent-transactions" style="padding-top: 25px">
+                  <h1 class="u-padding-block-12 u-medium u-bold">Users</h1>
+                </div>
+                <div class="u-padding-block-12">
+                  <table class="table is-selected-columns-mobile">
+                    <thead class="table-thead">
+                      <tr class="table-row">
+                        <th class="table-thead-col" style="--p-col-width: 100">
+                          <span class="eyebrow-heading-3">Firstname</span>
+                        </th>
+                        <th class="table-thead-col is-only-desktop" style="--p-col-width: 150">
+                          <span class="eyebrow-heading-3">Lastname</span>
+                        </th>
+                        <th class="table-thead-col is-only-desktop" style="--p-col-width: 140">
+                          <span class="eyebrow-heading-3">Company</span>
+                        </th>
+                        <th class="table-thead-col is-only-desktop" style="--p-col-width: 120">
+                          <span class="eyebrow-heading-3">Usertype</span>
+                        </th>
+                        <th class="table-thead-col" style="--p-col-width: 40">
+                          <span class="eyebrow-heading-3">Actions</span>
+                        </th>
+                      </tr>
+                    </thead>
+                    <tbody class="table-tbody">
+                      <tr class="table-row">
+                        <td class="table-col" data-title="Refrences">
+                          <div class="u-inline-flex u-cross-center u-gap-12">
+                            <span class="text u-break-word u-line-height-1-5">Walter</span>
+                          </div>
+                        </td>
+                        <td class="table-col is-only-desktop" data-title="Details">
+                          <div class="text"><span class="text">Brien</span></div>
+                        </td>
+                        <td class="table-col is-only-desktop" data-title="Amount">
+                          <span class="">Hunnovate</span>
+                        </td>
+                        <td class="table-col is-only-desktop" data-title="Date">
+                          <time class="text">11 Mar 2022</time>
+                        </td>
+                        <td class="table-col u-overflow-visible">
+                          <button class="button is-text is-only-icon" aria-label="more options">
+                            <span class="icon-dots-horizontal" aria-hidden="true"></span>
+                          </button>
+                        </td>
+                      </tr>
+                      <tr class="table-row">
+                        <td class="table-col" data-title="Refrences">
+                          <div class="u-inline-flex u-cross-center u-gap-12">
+                            <span class="text u-break-word u-line-height-1-5">Walter</span>
+                          </div>
+                        </td>
+                        <td class="table-col is-only-desktop" data-title="Details">
+                          <div class="text"><span class="text">Brien</span></div>
+                        </td>
+                        <td class="table-col is-only-desktop" data-title="Amount">
+                          <span class="">Hunnovate</span>
+                        </td>
+                        <td class="table-col is-only-desktop" data-title="Date">
+                          <time class="text">11 Mar 2022</time>
+                        </td>
+                        <td class="table-col u-overflow-visible">
+                          <button class="button is-text is-only-icon" aria-label="more options">
+                            <span class="icon-dots-horizontal" aria-hidden="true"></span>
+                          </button>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
                 </div>
               </div>
             </div>
+          </section>
         </div>
       </div>
-      <!-- Wallet Balance display ends here -->
-
     </div>
   </section>
 </template>
 
-<script>
+<script scoped>
 import HeaderNav from './HeaderNav.vue'
 export default {
   components: { HeaderNav }
 }
 </script>
 
-<style></style>
+<style>
+.inp {
+  padding-left: 40px;
+}
+</style>

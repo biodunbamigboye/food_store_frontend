@@ -32,7 +32,7 @@
             <label class="block font-bold mb-2">Company name</label>
             <div class="">
               <div class="relative">
-                <input v-model.lazy="company" placeholder="Company's Name" type="text"
+                <input v-model="company" placeholder="Company's Name" type="text"
                   class="px-3 py-2 max-w-full focus:ring focus:outline-none border-gray-700 rounded w-full dark:placeholder-gray-400 h-12 border bg-white dark:bg-slate-800" /><!--v-if-->
               </div>
             </div>
@@ -51,7 +51,6 @@
               type="reset">
               <!--v-if--><span class="px-2">Reset</span>
             </button>
-            <p>{{ company }}</p>
           </div>
           <hr class="my-6 -mx-6 dark:border-slate-800 border-t border-gray-100 my-10" />
           <div class="flex z-50 items-center flex-col justify-center overflow-hidden fixed inset-0" style="display: none">
