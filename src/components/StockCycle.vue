@@ -6,7 +6,7 @@
     <div class="container">
         <!-- add company form section here -->
      <div class="add_comp">
-        <h1 class="u-padding-block-12 u-font-size-32 u-bold">Create Stock Cycle</h1>
+        <h1 class="u-padding-block-12 u-font-size-32 u-bold">Stock Cycle</h1>
         <div>
           <form class="form u-width-full-line u-max-width-100%">
             <ul class="form-list">
