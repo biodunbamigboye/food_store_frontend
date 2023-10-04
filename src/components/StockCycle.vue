@@ -26,7 +26,7 @@
                     </div>
                     <div class="select">
                         <select name="pets" id="pet-select">
-                          <option value="">Select option</option>
+                          <option value="">Select stock</option>
                           <option value="1">Option 1</option>
                           <option value="2">Option 2</option>
                         </select>
