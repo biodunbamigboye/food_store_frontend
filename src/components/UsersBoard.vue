@@ -91,8 +91,9 @@
                   <label class="block font-bold mb-2">Usertype and company</label>
                   <div class="grid grid-cols-1 gap-3 md:grid-cols-2">
                     <div class="relative">
-                      <select
-                        class="inp px-3 py-2 max-w-full focus:ring focus:outline-none border-gray-700 rounded w-full dark:placeholder-gray-400 h-12 border bg-white dark:bg-slate-800"></select><!--v-if-->
+                      <select class="inp px-3 py-2 max-w-full focus:ring focus:outline-none border-gray-700 rounded w-full dark:placeholder-gray-400 h-12 border bg-white dark:bg-slate-800">
+                        <!-- <option value="absolute">Active</option> -->
+                      </select>
                     </div>
                     <div class="relative">
                       <select
