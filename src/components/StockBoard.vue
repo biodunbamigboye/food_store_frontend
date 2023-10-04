@@ -4,7 +4,7 @@
       <header-nav />
     </div>
     <div class="container">
-      <!-- add company form section here -->
+      <!-- add stock form section here -->
       <div class="add_comp">
         <h1 class="u-padding-block-12 u-font-size-32 u-bold">Create Stock</h1>
         <div>
@@ -30,13 +30,9 @@
                     </div>
                     <div class="select">
                         <select name="pets" id="pet-select">
-                          <option value="">Select option</option>
+                          <option value="">Select company</option>
                           <option value="1">Option 1</option>
                           <option value="2">Option 2</option>
-                          <option value="3">Option 3</option>
-                          <option value="4">Option 4</option>
-                          <option value="5">Option 5</option>
-                          <option value="6">Option 6</option>
                         </select>
                         <span class="icon-cheveron-down" aria-hidden="true"></span>
                       </div>
