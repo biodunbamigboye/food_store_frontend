@@ -8,7 +8,7 @@
             <ul class="form-list">
               <li class="form-item">
                 <div class="u-width-full-line">
-                  <label class="label">Status and Stock</label>
+                  <label class="label u-bold">Status and Stock</label>
                   <div class="grid grid-cols-1 gap-3 md:grid-cols-2">          
                     <div class="select">
                       <select name="pets" id="pet-select">
@@ -35,7 +35,7 @@
               </li>
               <li class="form-item">
                 <div class="u-width-full-line">
-                  <label class="label">Units purchased and sold</label>
+                  <label class="label u-bold">Units purchased and sold</label>
                   <div class="grid grid-cols-1 gap-3 md:grid-cols-2">          
                     <div>
                       <input type="number" class="input-text" placeholder="Units purchased" />
@@ -50,7 +50,7 @@
               </li>
               <li class="form-item">
                 <div class="u-width-full-line">
-                  <label class="label">Selling Price and Purchased at</label>
+                  <label class="label u-bold">Selling Price and Purchased at</label>
                   <div class="grid grid-cols-1 gap-3 md:grid-cols-2">          
                     <div>
                       <input type="number" class="input-number" placeholder="Selling Price" />
