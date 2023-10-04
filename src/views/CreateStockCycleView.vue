@@ -1,18 +1,18 @@
 <template>
   <div class="company-dashyboard flex">
     <SideMenu class="w-1/6"/>
-    <Dashboard class="w-5/6" />
+    <StockCycle class="w-5/6"/>
   </div>
 </template>
 <script>
 import SideMenu from "../components/AsideMenu.vue";
-import Dashboard from '../components/DashBoard.vue';
+import StockCycle from '../components/StockCycle.vue';
 
 export default {
   name: 'CompanyDashboard',
   components: {
     SideMenu,
-    Dashboard
+    StockCycle
   }
 }
 

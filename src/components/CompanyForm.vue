@@ -52,7 +52,7 @@
               <!--v-if--><span class="px-2">Reset</span>
             </button>
           </div>
-          <hr class="my-6 -mx-6 dark:border-slate-800 border-t border-gray-100 my-10" />
+          <hr class="-mx-6 dark:border-slate-800 border-t border-gray-100 my-10" />
           <div class="flex z-50 items-center flex-col justify-center overflow-hidden fixed inset-0" style="display: none">
             <div
               class="absolute inset-0 bg-gradient-to-tr opacity-90 dark:from-gray-700 dark:via-gray-900 dark:to-gray-700 from-gray-700 via-gray-900 to-gray-700">
