@@ -1,6 +1,10 @@
 .<template>
-  <section class="container">
-     <!-- add company form section here -->
+  <section >
+    <div>
+      <header-nav />
+    </div>
+    <div class="container">
+        <!-- add company form section here -->
      <div class="add_comp">
         <h1 class="u-padding-block-12 u-font-size-32 u-bold">Create Stock Cycle</h1>
         <div>
@@ -153,12 +157,14 @@
           </table>
         </div>
       </div>
+    </div>
   </section>
 </template>
 
 <script>
+import HeaderNav from './HeaderNav.vue'
 export default {
-
+  components: { HeaderNav }
 }
 </script>
 
