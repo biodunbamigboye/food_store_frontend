@@ -60,14 +60,14 @@ import "@appwrite.io/pink-icons";
             </li>
           </ul>
         </section>
-        <div class="side-nav-bottom" style="padding-top: 30px">
+        <footer class="side-nav-bottom" style="padding-top: 230px">
         <section class="drop-section">
           <button class="drop-button" @click="logOut" type="button">
             <span class="icon-logout-left" aria-hidden="true"></span>
             <span class="text">Logout</span>
           </button>
         </section>
-      </div>
+      </footer>
       </div>
       
     </div>
