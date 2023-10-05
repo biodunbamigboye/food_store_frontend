@@ -172,7 +172,7 @@ export default {
   },
   methods:{
     createSales(){
-
+       
     }
   }
 }
