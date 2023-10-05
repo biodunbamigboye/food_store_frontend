@@ -164,7 +164,17 @@
 <script>
 import HeaderNav from './HeaderNav.vue'
 export default {
-  components: { HeaderNav }
+  components: { HeaderNav },
+  data(){
+    return{
+      
+    }
+  },
+  methods:{
+    createSales(){
+
+    }
+  }
 }
 </script>
 
