@@ -147,14 +147,14 @@
                 </tr>
               </thead>
               <tbody class="table-tbody">
-                <tr class="table-row">
+                <tr class="table-row" v-for="(item, index) in companies" :key="item.uuid">
                   <td class="table-col" data-title="Refrences">
                     <div class="u-inline-flex u-cross-center u-gap-12">
-                      <span class="text u-break-word u-line-height-1-5">airport.jpg</span>
+                      <span class="text u-break-word u-line-height-1-5">{{ index+1 }}</span>
                     </div>
                   </td>
                   <td class="table-col is-only-desktop" data-title="Details">
-                    <div class="text"><span class="text">image/jpeg</span></div>
+                    <div class="text"><span class="text">{{ item.name }}</span></div>
                   </td>
                   <td class="table-col is-only-desktop" data-title="Amount">
                     <span class="tag">$ 350.5</span>
@@ -211,10 +211,11 @@ export default {
   data(){
     return{
       name: "",
+      companies:[]
     }
   },
   mounted(){
-    this.getCompany();
+    this.getCompanies();
   },
   methods:{
     async createCompany(){
@@ -223,17 +224,19 @@ export default {
         console.log(response)
         this.name = ''
         alert("success")
+        this.getCompanies()
       }catch(error){
         console.log(error)
       }
      
     },
-    
-    async getCompany(){
+
+    async getCompanies(){
       try{
-        let response = await axiosClient.get('/company',{name: this.name})
+        let response = await axiosClient.get('/company')
         console.log(response)
-        this.name = ''
+        this.companies = response.data.data.allCompany.data
+  
       }catch(error){
         console.log(error)
       }
