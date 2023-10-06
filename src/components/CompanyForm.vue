@@ -32,7 +32,7 @@
             <label class="block font-bold mb-2">Company name</label>
             <div class="">
               <div class="relative">
-                <input v-model="company" placeholder="Company's Name" type="text"
+                <input v-model="name" placeholder="Company's Name" type="text"
                   class="px-3 py-2 max-w-full focus:ring focus:outline-none border-gray-700 rounded w-full dark:placeholder-gray-400 h-12 border bg-white dark:bg-slate-800" /><!--v-if-->
               </div>
             </div>
@@ -45,7 +45,7 @@
           <div class="flex items-center justify-start flex-wrap -mb-3">
             <button
               class="inline-flex justify-center items-center whitespace-nowrap focus:outline-none transition-colors focus:ring duration-150 border cursor-pointer rounded border-blue-600 dark:border-blue-500 ring-blue-300 dark:ring-blue-700 bg-blue-600 dark:bg-blue-500 text-white hover:bg-blue-700 hover:border-blue-700 hover:dark:bg-blue-600 hover:dark:border-blue-600 py-2 px-3 mr-3 last:mr-0 mb-3"
-              type="submit" @submit="createCompany">
+              type="submit" @click="createCompany">
               <!--v-if--><span class="px-2">Submit</span></button><button
               class="inline-flex justify-center items-center whitespace-nowrap focus:outline-none transition-colors focus:ring duration-150 border cursor-pointer rounded border-blue-600 dark:border-blue-500 ring-blue-300 dark:ring-blue-700 text-blue-600 dark:text-blue-500 hover:bg-blue-600 hover:text-white hover:dark:text-white hover:dark:border-blue-600 py-2 px-3 mr-3 last:mr-0 mb-3"
               type="reset">
@@ -204,16 +204,39 @@
 
 <script>
 import HeaderNav from './HeaderNav.vue'
+import { axiosClient } from '../plugins/http'
+
 export default {
   components: { HeaderNav },
   data(){
     return{
-      company: "",
+      name: "",
     }
+  },
+  mounted(){
+    this.getCompany();
   },
   methods:{
     async createCompany(){
-      
+      try{
+        let response = await axiosClient.post('/company',{name: this.name})
+        console.log(response)
+        this.name = ''
+        alert("success")
+      }catch(error){
+        console.log(error)
+      }
+     
+    },
+    async getCompany(){
+      try{
+        let response = await axiosClient.get('/company',{name: this.name})
+        console.log(response)
+        this.name = ''
+      }catch(error){
+        console.log(error)
+      }
+     
     }
   }
 }

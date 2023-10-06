@@ -9,7 +9,7 @@ class AuthService {
           });
           console.log(response)
       if (response.data.data.token) {
-          localStorage.setItem('token', JSON.stringify(response.data.data.token));
+          localStorage.setItem('token', response.data.data.token);
       }
       return response.data;
   }

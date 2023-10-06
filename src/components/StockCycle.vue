@@ -137,12 +137,12 @@
                   <div class="u-inline-flex u-cross-center u-gap-12">
                     <span class="text u-break-word u-line-height-1-5">airport.jpg</span>
                   </div>
-                </td>
+                </td> 
                 <td class="table-col is-only-desktop" data-title="Details">
                   <div class="text"><span class="text">image/jpeg</span></div>
                 </td>
                 <td class="table-col is-only-desktop" data-title="Amount">
-                  <span class="tag">$ 350.5</span>
+                  <span class="text">$ 350.5</span>
                 </td>
                 <td class="table-col is-only-desktop" data-title="Date">
                   <time class="text">11 Mar 2022</time>
