@@ -228,9 +228,21 @@ export default {
       }
      
     },
+    
     async getCompany(){
       try{
         let response = await axiosClient.get('/company',{name: this.name})
+        console.log(response)
+        this.name = ''
+      }catch(error){
+        console.log(error)
+      }
+     
+    },
+
+    async updateCompany(){
+      try{
+        let response = await axiosClient.put('/company',{name: this.name})
         console.log(response)
         this.name = ''
       }catch(error){
