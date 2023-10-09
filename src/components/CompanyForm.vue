@@ -228,10 +228,11 @@ export default {
       }
     },
 
-    async deleteCompany() {
+    async deleteCompany(uuid) {
       try {
-        const response = await axiosClient.delete('/company/${uuid}')
+        const response = await axiosClient.delete(`/company/${uuid}`)
         console.log(response)
+        this.getCompanies()
       } catch (error) {
         console.log(error)
       }
