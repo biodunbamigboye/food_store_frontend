@@ -171,7 +171,7 @@
                           <button class="button is-text is-only-icon" aria-label="more options">
                             <span class="icon-pencil" aria-hidden="true"></span>
                           </button>
-                          <button class="button is-text is-only-icon" aria-label="more options">
+                          <button class="button is-text is-only-icon" type="submit" @click="deleteCompany(item.uuid)">
                             <span class="icon-trash" aria-hidden="true"></span>
                           </button>
                         </div>
@@ -228,11 +228,10 @@ export default {
       }
     },
 
-    async updateCompany() {
+    async deleteCompany() {
       try {
-        let response = await axiosClient.put('/company', { name: this.name })
+        const response = await axiosClient.delete('/company/${uuid}')
         console.log(response)
-        this.name = ''
       } catch (error) {
         console.log(error)
       }
