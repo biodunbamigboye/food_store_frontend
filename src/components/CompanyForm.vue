@@ -97,9 +97,8 @@
                 <div class="space-y-3">
                   <div>
                     <div class="mb-6 mt-3">
-                      <label class="block text-gray-700 text-sm font-bold mb-2" for="title">
-                        Name </label><input
-                        class="shadow appearance-none border border-blue-500 rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline" />
+                       <label class="block text-gray-700 text-sm font-bold mb-2" for="title"> Name </label>
+                       <input class="shadow appearance-none border border-blue-500 rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline" />
                     </div>
                     <div class="flex items-center">
                       <button class="flex-1 mx-2 bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">
@@ -121,80 +120,61 @@
               </footer>
             </div>
           </div>
-           <!-- recent transactions starts here -->
-      <div class="u-padding-block-end-56">
-        <div class="">
-          <div class="recent-transactions" style="padding-top: 25px">
-            <h1>Companies</h1>
+          <!-- recent transactions starts here -->
+          <div class="u-padding-block-end-56">
+            <div class="">
+              <div class="recent-transactions" style="padding-top: 25px">
+                <h1>Companies</h1>
+              </div>
+              <div class="u-padding-block-12">
+                <table class="table is-selected-columns-mobile">
+                  <thead class="table-thead">
+                    <tr class="table-row">
+                      <th class="table-thead-col" style="--p-col-width: 100">
+                        <span class="eyebrow-heading-3">ID</span>
+                      </th>
+                      <th class="table-thead-col is-only-desktop" style="--p-col-width: 150">
+                        <span class="eyebrow-heading-3">Company name</span>
+                      </th>
+                      <th class="table-thead-col is-only-desktop" style="--p-col-width: 140">
+                        <span class="eyebrow-heading-3">No of users</span>
+                      </th>
+                      <th class="table-thead-col is-only-desktop" style="--p-col-width: 120">
+                        <span class="eyebrow-heading-3">Date</span>
+                      </th>
+                      <th class="table-thead-col" style="--p-col-width: 40"></th>
+                    </tr>
+                  </thead>
+                  <tbody class="table-tbody">
+                    <tr class="table-row" v-for="(item, index) in companies" :key="item.uuid">
+                      <td class="table-col" data-title="Refrences">
+                        <div class="u-inline-flex u-cross-center u-gap-12">
+                          <span class="text u-break-word u-line-height-1-5">{{ index + 1 }}</span>
+                        </div>
+                      </td>
+                      <td class="table-col is-only-desktop" data-title="Details">
+                        <div class="text">
+                          <span class="text">{{ item.name }}</span>
+                        </div>
+                      </td>
+                      <td class="table-col is-only-desktop" data-title="Amount">
+                        <span class="tag">{{}}</span>
+                      </td>
+                      <td class="table-col is-only-desktop" data-title="Date">
+                        <time class="text">{{ item.created_at }}</time>
+                      </td>
+                      <td class="table-col u-overflow-visible">
+                        <button class="button is-text is-only-icon" aria-label="more options">
+                          <span class="icon-dots-horizontal" aria-hidden="true"></span>
+                        </button>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
           </div>
-          <div class="u-padding-block-12">
-            <table class="table is-selected-columns-mobile">
-              <thead class="table-thead">
-                <tr class="table-row">
-                  <th class="table-thead-col" style="--p-col-width: 100">
-                    <span class="eyebrow-heading-3">ID</span>
-                  </th>
-                  <th class="table-thead-col is-only-desktop" style="--p-col-width: 150" >
-                    <span class="eyebrow-heading-3">Company name</span>
-                  </th>
-                  <th class="table-thead-col is-only-desktop" style="--p-col-width: 140">
-                    <span class="eyebrow-heading-3">No of users</span>
-                  </th>
-                  <th class="table-thead-col is-only-desktop" style="--p-col-width: 120">
-                    <span class="eyebrow-heading-3">Date</span>
-                  </th>
-                  <th class="table-thead-col" style="--p-col-width: 40"></th>
-                </tr>
-              </thead>
-              <tbody class="table-tbody">
-                <tr class="table-row" v-for="(item, index) in companies" :key="item.uuid">
-                  <td class="table-col" data-title="Refrences">
-                    <div class="u-inline-flex u-cross-center u-gap-12">
-                      <span class="text u-break-word u-line-height-1-5">{{ index+1 }}</span>
-                    </div>
-                  </td>
-                  <td class="table-col is-only-desktop" data-title="Details">
-                    <div class="text"><span class="text">{{ item.name }}</span></div>
-                  </td>
-                  <td class="table-col is-only-desktop" data-title="Amount">
-                    <span class="tag">$ 350.5</span>
-                  </td>
-                  <td class="table-col is-only-desktop" data-title="Date">
-                    <time class="text">11 Mar 2022</time>
-                  </td>
-                  <td class="table-col u-overflow-visible">
-                    <button class="button is-text is-only-icon" aria-label="more options">
-                      <span class="icon-dots-horizontal" aria-hidden="true"></span>
-                    </button>
-                  </td>
-                </tr>
-                <tr class="table-row">
-                  <td class="table-col" data-title="Refrences">
-                    <div class="u-inline-flex u-cross-center u-gap-12">
-                      <span class="text u-break-word u-line-height-1-5">airport.jpg</span>
-                    </div>
-                  </td>
-                  <td class="table-col is-only-desktop" data-title="Details">
-                    <div class="text"><span class="text">image/jpeg</span></div>
-                  </td>
-                  <td class="table-col is-only-desktop" data-title="Amount">
-                    <span class="tag">$ 350.5</span>
-                  </td>
-                  <td class="table-col is-only-desktop" data-title="Date">
-                    <time class="text">11 Mar 2022</time>
-                  </td>
-                  <td class="table-col u-overflow-visible">
-                    <button class="button is-text is-only-icon" aria-label="more options">
-                      <span class="icon-dots-horizontal" aria-hidden="true"></span>
-                    </button>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </div>
-      <!-- recent transactions ends here -->
+          <!-- recent transactions ends here -->
           <div class="p-3 lg:px-6 border-t border-gray-100 dark:border-slate-800"><!----></div>
         </footer>
       </div>
@@ -208,50 +188,46 @@ import { axiosClient } from '../plugins/http'
 
 export default {
   components: { HeaderNav },
-  data(){
-    return{
-      name: "",
-      companies:[]
+  data() {
+    return {
+      name: '',
+      companies: []
     }
   },
-  mounted(){
-    this.getCompanies();
+  mounted() {
+    this.getCompanies()
   },
-  methods:{
-    async createCompany(){
-      try{
-        let response = await axiosClient.post('/company',{name: this.name})
+  methods: {
+    async createCompany() {
+      try {
+        let response = await axiosClient.post('/company', { name: this.name })
         console.log(response)
         this.name = ''
-        alert("success")
+        alert('success')
         this.getCompanies()
-      }catch(error){
+      } catch (error) {
         console.log(error)
       }
-     
     },
 
-    async getCompanies(){
-      try{
+    async getCompanies() {
+      try {
         let response = await axiosClient.get('/company')
         console.log(response)
         this.companies = response.data.data.allCompany.data
-  
-      }catch(error){
+      } catch (error) {
         console.log(error)
       }
-     
     },
 
-    async updateCompany(){
-      try{
-        let response = await axiosClient.put('/company',{name: this.name})
+    async updateCompany() {
+      try {
+        let response = await axiosClient.put('/company', { name: this.name })
         console.log(response)
         this.name = ''
-      }catch(error){
+      } catch (error) {
         console.log(error)
       }
-     
     }
   }
 }
