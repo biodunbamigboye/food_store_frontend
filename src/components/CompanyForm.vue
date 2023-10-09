@@ -97,8 +97,9 @@
                 <div class="space-y-3">
                   <div>
                     <div class="mb-6 mt-3">
-                       <label class="block text-gray-700 text-sm font-bold mb-2" for="title"> Name </label>
-                       <input class="shadow appearance-none border border-blue-500 rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline" />
+                      <label class="block text-gray-700 text-sm font-bold mb-2" for="title"> Name </label>
+                      <input
+                        class="shadow appearance-none border border-blue-500 rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline" />
                     </div>
                     <div class="flex items-center">
                       <button class="flex-1 mx-2 bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">
@@ -139,10 +140,12 @@
                       <th class="table-thead-col is-only-desktop" style="--p-col-width: 140">
                         <span class="eyebrow-heading-3">No of users</span>
                       </th>
-                      <th class="table-thead-col is-only-desktop" style="--p-col-width: 120">
+                      <th class="table-thead-col is-only-desktop" style="--p-col-width: 100">
                         <span class="eyebrow-heading-3">Date</span>
                       </th>
-                      <th class="table-thead-col" style="--p-col-width: 40"></th>
+                      <th class="table-thead-col" style="--p-col-width: 80">
+                        <span class="eyebrow-heading-3">Actions</span>
+                      </th>
                     </tr>
                   </thead>
                   <tbody class="table-tbody">
@@ -164,9 +167,14 @@
                         <time class="text">{{ item.created_at }}</time>
                       </td>
                       <td class="table-col u-overflow-visible">
-                        <button class="button is-text is-only-icon" aria-label="more options">
-                          <span class="icon-dots-horizontal" aria-hidden="true"></span>
-                        </button>
+                        <div class="u-flex">
+                          <button class="button is-text is-only-icon" aria-label="more options">
+                            <span class="icon-pencil" aria-hidden="true"></span>
+                          </button>
+                          <button class="button is-text is-only-icon" aria-label="more options">
+                            <span class="icon-trash" aria-hidden="true"></span>
+                          </button>
+                        </div>
                       </td>
                     </tr>
                   </tbody>
