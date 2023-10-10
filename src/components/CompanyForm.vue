@@ -247,7 +247,11 @@ export default {
         let response = await axiosClient.post('/company', { name: this.name })
         console.log(response)
         this.name = ''
-        this.$swal('You successfully create a Company', 'question', 'succcess')
+        this.$swal({
+          icon: 'success',
+          title: 'Successful',
+          text: 'You created company successfully'
+        })
         this.getCompanies()
       } catch (error) {
         console.log(error)
