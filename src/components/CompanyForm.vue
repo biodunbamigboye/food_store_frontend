@@ -175,7 +175,7 @@
                       </td>
                       <td class="table-col u-overflow-visible">
                         <div class="u-flex">
-                          <button class="button is-text is-only-icon" aria-label="more options">
+                          <button class="button is-text is-only-icon" @click="editCompany">
                             <span class="icon-pencil" aria-hidden="true"></span>
                           </button>
                           <button class="button is-text is-only-icon" type="submit" @click="deleteCompany(item.uuid)">
@@ -272,7 +272,8 @@ export default {
           footer: '<a href="">Why do I have this issue?</a>'
         })
       }
-    }
+    },
+    editCompany (){}
   }
 }
 </script>

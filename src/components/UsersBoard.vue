@@ -38,17 +38,22 @@
                   <div class="grid grid-cols-1 gap-3 md:grid-cols-2">
                     <div class="relative">
                       <input placeholder="First_name" type="text"
-                        class="inp px-8 py-2 max-w-full focus:ring focus:outline-none border-gray-700 rounded w-full dark:placeholder-gray-400 h-12 border bg-white dark:bg-slate-800 pl-10" /><span
-                        class="inline-flex justify-center items-center w-10 h-12 absolute top-0 left-0 z-10 pointer-events-none text-gray-500 dark:text-slate-400"><svg
-                          viewBox="0 0 24 24" width="16" height="16" class="inline-block">
+                        class="inp px-8 py-2 max-w-full focus:ring focus:outline-none border-gray-700 rounded w-full dark:placeholder-gray-400 h-12 border bg-white dark:bg-slate-800 pl-10"
+                        v-model="firsName" />
+                      <span
+                        class="inline-flex justify-center items-center w-10 h-12 absolute top-0 left-0 z-10 pointer-events-none text-gray-500 dark:text-slate-400">
+                        <svg viewBox="0 0 24 24" width="16" height="16" class="inline-block">
                           <path fill="currentColor"
                             d="M12,4A4,4 0 0,1 16,8A4,4 0 0,1 12,12A4,4 0 0,1 8,8A4,4 0 0,1 12,4M12,14C16.42,14 20,15.79 20,18V20H4V18C4,15.79 7.58,14 12,14Z">
                           </path>
-                        </svg></span>
+                        </svg>
+                      </span>
                     </div>
                     <div class="relative">
                       <input placeholder="Second_name" type="text"
-                        class="inp px-3 py-2 max-w-full focus:ring focus:outline-none border-gray-700 rounded w-full dark:placeholder-gray-400 h-12 border bg-white dark:bg-slate-800 pl-10" /><span
+                        class="inp px-3 py-2 max-w-full focus:ring focus:outline-none border-gray-700 rounded w-full dark:placeholder-gray-400 h-12 border bg-white dark:bg-slate-800 pl-10"
+                        v-model="lastName" />
+                      <span
                         class="inline-flex justify-center items-center w-10 h-12 absolute top-0 left-0 z-10 pointer-events-none text-gray-500 dark:text-slate-400"><svg
                           viewBox="0 0 24 24" width="16" height="16" class="inline-block">
                           <path fill="currentColor"
@@ -64,7 +69,8 @@
                   <div class="grid grid-cols-1 gap-3 md:grid-cols-2">
                     <div class="relative">
                       <input placeholder="Email" type="email"
-                        class="inp px-3 py-2 max-w-full focus:ring focus:outline-none border-gray-700 rounded w-full dark:placeholder-gray-400 h-12 border bg-white dark:bg-slate-800 pl-10" />
+                        class="inp px-3 py-2 max-w-full focus:ring focus:outline-none border-gray-700 rounded w-full dark:placeholder-gray-400 h-12 border bg-white dark:bg-slate-800 pl-10"
+                        v-model="email" />
                       <span
                         class="inline-flex justify-center items-center w-10 h-12 absolute top-0 left-0 z-10 pointer-events-none text-gray-500 dark:text-slate-400">
                         <svg viewBox="0 0 24 24" width="16" height="16" class="inline-block">
@@ -76,7 +82,9 @@
                     </div>
                     <div class="relative">
                       <input placeholder="Phone no" type="number"
-                        class="inp px-3 py-2 max-w-full focus:ring focus:outline-none border-gray-700 rounded w-full dark:placeholder-gray-400 h-12 border bg-white dark:bg-slate-800 pl-10" /><span
+                        class="inp px-3 py-2 max-w-full focus:ring focus:outline-none border-gray-700 rounded w-full dark:placeholder-gray-400 h-12 border bg-white dark:bg-slate-800 pl-10"
+                        v-model="phoneNumber" />
+                      <span
                         class="inline-flex justify-center items-center w-10 h-12 absolute top-0 left-0 z-10 pointer-events-none text-gray-500 dark:text-slate-400"><svg
                           viewBox="0 0 24 24" width="16" height="16" class="inline-block">
                           <path fill="currentColor"
@@ -91,7 +99,8 @@
                   <label class="block font-bold mb-2">Usertype and company</label>
                   <div class="grid grid-cols-1 gap-3 md:grid-cols-2">
                     <div class="relative">
-                      <select class="inp px-3 py-2 max-w-full focus:ring focus:outline-none border-gray-700 rounded w-full dark:placeholder-gray-400 h-12 border bg-white dark:bg-slate-800">
+                      <select
+                        class="inp px-3 py-2 max-w-full focus:ring focus:outline-none border-gray-700 rounded w-full dark:placeholder-gray-400 h-12 border bg-white dark:bg-slate-800">
                         <!-- <option value="absolute">Active</option> -->
                       </select>
                     </div>
@@ -107,7 +116,9 @@
                   <div class="grid grid-cols-1 gap-3 md:grid-cols-2">
                     <div class="relative">
                       <input placeholder="Password" type="password"
-                        class="inp px-3 py-2 max-w-full focus:ring focus:outline-none border-gray-700 rounded w-full dark:placeholder-gray-400 h-12 border bg-white dark:bg-slate-800 pl-10" /><span
+                        class="inp px-3 py-2 max-w-full focus:ring focus:outline-none border-gray-700 rounded w-full dark:placeholder-gray-400 h-12 border bg-white dark:bg-slate-800 pl-10"
+                        v-model="password" />
+                      <span
                         class="inline-flex justify-center items-center w-10 h-12 absolute top-0 left-0 z-10 pointer-events-none text-gray-500 dark:text-slate-400"><svg
                           viewBox="0 0 24 24" width="16" height="16" class="inline-block">
                           <path fill="currentColor"
@@ -117,7 +128,8 @@
                     </div>
                     <div class="relative">
                       <input placeholder="Confirm Password" type="password"
-                        class="inp px-3 py-2 max-w-full focus:ring focus:outline-none border-gray-700 rounded w-full dark:placeholder-gray-400 h-12 border bg-white dark:bg-slate-800 pl-10" /><span
+                        class="inp px-3 py-2 max-w-full focus:ring focus:outline-none border-gray-700 rounded w-full dark:placeholder-gray-400 h-12 border bg-white dark:bg-slate-800 pl-10"
+                        v-model="confirmPassword" /><span
                         class="inline-flex justify-center items-center w-10 h-12 absolute top-0 left-0 z-10 pointer-events-none text-gray-500 dark:text-slate-400"><svg
                           viewBox="0 0 24 24" width="16" height="16" class="inline-block">
                           <path fill="currentColor"
@@ -133,7 +145,7 @@
                 <div class="flex items-center justify-start flex-wrap -mb-3">
                   <button
                     class="inline-flex justify-center items-center whitespace-nowrap focus:outline-none transition-colors focus:ring duration-150 border cursor-pointer rounded border-blue-600 dark:border-blue-500 ring-blue-300 dark:ring-blue-700 bg-blue-600 dark:bg-blue-500 text-white hover:bg-blue-700 hover:border-blue-700 hover:dark:bg-blue-600 hover:dark:border-blue-600 py-2 px-3 mr-3 last:mr-0 mb-3"
-                    type="submit">
+                    type="submit" @click="createUser">
                     <!--v-if--><span class="px-2">Submit</span>
                   </button>
                 </div>
@@ -225,8 +237,49 @@
 
 <script scoped>
 import HeaderNav from './HeaderNav.vue'
+import { axiosClient } from '../plugins/http'
 export default {
-  components: { HeaderNav }
+  components: { HeaderNav },
+  data() {
+    return {
+      firsName: "",
+      lastName: "",
+      email: "",
+      phoneNumber: "",
+      password: "",
+      confirmPassword: ""
+    }
+  },
+  mounted() { 
+    this.getUsers();
+  },
+  methods: {
+    async createUser() {
+      try {
+        let response = await axiosClient.post('/users', {
+          firstName: this.firstName,
+          lastName: this.lastName,
+          email: this.email,
+          phoneNumber: this.phoneNumber,
+          password: this.password,
+          confirmPassword: this.confirmPassword
+        })
+        console.log(response)
+        alert('create user')
+      } catch (error) {
+        console.log(error)
+      }
+    },
+    async getUsers() {
+      try {
+        let response = await axiosClient.get('/users')
+        console.log(response)
+        // this.users = response.data.data.allUser.data
+      } catch (error) {
+        console.log(error)
+      }
+    },
+  }
 }
 </script>
 
