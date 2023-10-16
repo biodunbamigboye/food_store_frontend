@@ -97,7 +97,7 @@
                 </div>
                 <div class="mb-6 last:mb-0">
                   <label class="block font-bold mb-2">Usertype and company</label>
-                  <div class="grid grid-cols-1 gap-3 md:grid-cols-2">          
+                  <div class="grid grid-cols-1 gap-3 md:grid-cols-2">
                     <div class="select">
                       <select name="pets" id="pet-select" v-model="type">
                         <option value="">Select User type</option>
@@ -108,15 +108,15 @@
                       <span class="icon-cheveron-down" aria-hidden="true"></span>
                     </div>
                     <div class="select">
-                        <select name="pets" id="pet-select">
-                          <!-- <option value="">Select company</option>
-                          <option value="1">Option 1</option>
-                          <option value="2">Option 2</option> -->
-                        </select>
-                        <span class="icon-cheveron-down" aria-hidden="true"></span>
-                      </div>
-                    <div>
-                  </div>
+                      <select name="pets" id="pet-select">
+                        <option value="">Select Company</option>
+                        <option value="index" v-for="item in companies" :key="item.uuid">
+                          {{ item.name }}
+                        </option>
+                      </select>
+                      <span class="icon-cheveron-down" aria-hidden="true"></span>
+                    </div>
+                    <div></div>
                   </div>
                   <!--v-if-->
                 </div>
@@ -172,7 +172,10 @@
                   <table class="table is-selected-columns-mobile">
                     <thead class="table-thead">
                       <tr class="table-row">
-                        <th class="table-thead-col" style="--p-col-width: 100">
+                        <th class="table-thead-col" style="--p-col-width: 80">
+                        <span class="eyebrow-heading-3">ID</span>
+                      </th>
+                        <th class="table-thead-col" style="--p-col-width: 150">
                           <span class="eyebrow-heading-3">Firstname</span>
                         </th>
                         <th class="table-thead-col is-only-desktop" style="--p-col-width: 150">
@@ -184,52 +187,41 @@
                         <th class="table-thead-col is-only-desktop" style="--p-col-width: 120">
                           <span class="eyebrow-heading-3">Usertype</span>
                         </th>
-                        <th class="table-thead-col" style="--p-col-width: 40">
+                        <th class="table-thead-col" style="--p-col-width: 100">
                           <span class="eyebrow-heading-3">Actions</span>
                         </th>
                       </tr>
                     </thead>
                     <tbody class="table-tbody">
-                      <tr class="table-row">
+                      <tr class="table-row" v-for="(item, index) in users" :key="item.uuid">
                         <td class="table-col" data-title="Refrences">
                           <div class="u-inline-flex u-cross-center u-gap-12">
-                            <span class="text u-break-word u-line-height-1-5">Walter</span>
+                            <span class="text u-break-word u-line-height-1-5">{{ index + 1 }}</span>
+                          </div>
+                        </td>
+                        <td class="table-col" data-title="Refrences">
+                          <div class="u-inline-flex u-cross-center u-gap-12">
+                            <span class="text u-break-word u-line-height-1-5">{{ item.first_name }}</span>
                           </div>
                         </td>
                         <td class="table-col is-only-desktop" data-title="Details">
-                          <div class="text"><span class="text">Brien</span></div>
+                          <div class="text"><span class="text">{{ item.last_name }}</span></div>
                         </td>
-                        <td class="table-col is-only-desktop" data-title="Amount">
-                          <span class="">Hunnovate</span>
-                        </td>
-                        <td class="table-col is-only-desktop" data-title="Date">
-                          <time class="text">11 Mar 2022</time>
-                        </td>
-                        <td class="table-col u-overflow-visible">
-                          <button class="button is-text is-only-icon" aria-label="more options">
-                            <span class="icon-dots-horizontal" aria-hidden="true"></span>
-                          </button>
-                        </td>
-                      </tr>
-                      <tr class="table-row">
-                        <td class="table-col" data-title="Refrences">
-                          <div class="u-inline-flex u-cross-center u-gap-12">
-                            <span class="text u-break-word u-line-height-1-5">Walter</span>
-                          </div>
-                        </td>
-                        <td class="table-col is-only-desktop" data-title="Details">
-                          <div class="text"><span class="text">Brien</span></div>
-                        </td>
-                        <td class="table-col is-only-desktop" data-title="Amount">
-                          <span class="">Hunnovate</span>
+                        <td class="table-col is-only-desktop" data-title="Amount" >
+                          <span class="" v-for="company in companies" :key="company.uuid">{{ company.name }}</span>
                         </td>
                         <td class="table-col is-only-desktop" data-title="Date">
-                          <time class="text">11 Mar 2022</time>
+                          <time class="text">{{ item.type }}</time>
                         </td>
                         <td class="table-col u-overflow-visible">
-                          <button class="button is-text is-only-icon" aria-label="more options">
-                            <span class="icon-dots-horizontal" aria-hidden="true"></span>
+                          <div class="u-flex">
+                          <button class="button is-text is-only-icon" @click="editUser">
+                            <span class="icon-pencil" aria-hidden="true"></span>
                           </button>
+                          <button class="button is-text is-only-icon" type="submit" @click="deleteUser(item.uuid)">
+                            <span class="icon-trash" aria-hidden="true"></span>
+                          </button>
+                        </div>
                         </td>
                       </tr>
                     </tbody>
@@ -251,33 +243,45 @@ export default {
   components: { HeaderNav },
   data() {
     return {
-      firsName: "",
-      lastName: "",
-      email: "",
-      phoneNumber: "",
-      password: "",
-      confirmPassword: "",
-      type:null,
+      firsName: '',
+      lastName: '',
+      email: '',
+      phoneNumber: '',
+      password: '',
+      confirmPassword: '',
+      type: null,
+      companies: [],
+      users: []
     }
   },
-  mounted() { 
-    this.getUsers();
-    this.getCompanies();
+  mounted() {
+    this.getUsers()
+    this.getCompanies()
   },
   methods: {
     async createUser() {
       try {
         let response = await axiosClient.post('/users', {
           first_name: this.firstName,
-          lastName: this.lastName,
+          last_name: this.lastName,
           email: this.email,
-          phoneNumber: this.phoneNumber,
+          phone  : this.phoneNumber,
           password: this.password,
           confirmPassword: this.confirmPassword,
-          type : this.type
+          type: this.type,
+          companies: this.companies
         })
         console.log(response)
-        alert('create user')
+        this.firstName = ''
+        this.lastName = ''
+        this.email = ''
+        this.phoneNumber = ''
+        this.confirmPassword = ''
+        this.type = ''
+        this.companies = ''
+
+        this.getUsers()
+        this.getCompanies()
       } catch (error) {
         console.log(error)
       }
@@ -286,9 +290,37 @@ export default {
       try {
         let response = await axiosClient.get('/users')
         console.log(response)
-        // this.users = response.data.data 
+        this.users = response.data.data
       } catch (error) {
         console.log(error)
+      }
+    },
+    async deleteUser(uuid) { 
+      try {
+        this.$swal({
+          title: 'Are you sure?',
+          text: "You won't be able to revert this!",
+          icon: 'warning',
+          showCancelButton: true,
+          confirmButtonColor: '#3085d6',
+          cancelButtonColor: '#d33',
+          confirmButtonText: 'Yes, delete it!'
+        }).then(async (result) => {
+          if (result.isConfirmed) {
+            const response = await axiosClient.delete(`/users/${uuid}`)
+            console.log(response)
+            this.$swal('Deleted!', 'Company has been deleted.', 'success')
+            this.getCompanies();
+          }
+        })
+      } catch (error) {
+        console.log(error)
+        this.$swal({
+          icon: 'error',
+          title: 'Oops...',
+          text: 'Something went wrong!',
+          footer: '<a href="">Why do I have this issue?</a>'
+        })
       }
     },
     async getCompanies() {
@@ -299,11 +331,11 @@ export default {
       } catch (error) {
         console.log(error)
       }
-    },
+    }
   }
 }
 </script>
- 
+
 <style>
 .inp {
   padding-left: 40px;
