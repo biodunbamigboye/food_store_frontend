@@ -85,47 +85,53 @@
           </div> -->
 
           <!-- edit company tab here -->
-          <div class="flex z-50 items-center flex-col justify-center overflow-hidden fixed inset-0" style="display: none">
-            <div
-              class="absolute inset-0 bg-gradient-to-tr opacity-90 dark:from-gray-700 dark:via-gray-900 dark:to-gray-700 from-gray-700 via-gray-900 to-gray-700">
-            </div>
-            <div
-              class="rounded-2xl flex-col dark:bg-slate-900 bg-white flex shadow-lg max-h-modal w-11/12 md:w-3/5 lg:w-2/5 xl:w-4/12 z-50"
-              style="display: none">
-              <div class="flex-1 p-6">
-                <div class="flex items-center justify-between mb-3">
-                  <h1 class="text-2xl">Edit Company</h1>
+          <dialog id="dialog6" class="modal is-big is-separate-header" close>
+            <form class="modal-form" method="dialog">
+              <header class="modal-header">
+                <div class="u-flex u-main-space-between u-cross-center u-gap-16">
+                  <h4 class="modal-title heading-level-5">Modal title</h4>
+                  <button class="button is-text is-small is-only-icon u-cross-center u-margin-inline-start-auto"
+                    aria-label="Close modal">
+                    <span class="icon-x" aria-hidden="true"></span>
+                  </button>
                 </div>
-                <div class="space-y-3">
-                  <div>
-                    <div class="mb-6 mt-3">
-                      <label class="block text-gray-700 text-sm font-bold mb-2" for="title">
-                        Name
-                      </label>
-                      <input
-                        class="shadow appearance-none border border-blue-500 rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:shadow-outline" />
-                    </div>
-                    <div class="flex items-center">
-                      <button class="flex-1 mx-2 bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">
-                        Cancel
-                      </button>
-                      <button class="flex-1 mx-2 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
-                        Save
+                <p>Provide contextual feedback messages for complex modals.</p>
+              </header>
+              <div class="modal-content">
+                <ul class="form-list">
+                  <li class="form-item">
+                    <label class="label">Label</label>
+                    <div class="input-text-wrapper" style="--amount-of-buttons: 1;">
+                      <input type="password" class="input-text" placeholder="Placeholder" />
+                      <button class="show-password-button" aria-label="show password" type="button">
+                        <span class="icon-eye" aria-hidden="true"></span>
                       </button>
                     </div>
-                  </div>
+                  </li>
+                  <li class="form-item">
+                    <label class="label">Label</label>
+                    <div class="input-text-wrapper" style="--amount-of-buttons:2">
+                      <input type="text" placeholder="Placeholder" />
+                      <div class="options-list">
+                        <button class="options-list-button" aria-label="show password / hide password" type="button">
+                          <span class="icon-eye" aria-hidden="true"></span>
+                        </button>
+                        <button class="options-list-button" aria-label="copy text" type="button">
+                          <span class="icon-duplicate" aria-hidden="true"></span>
+                        </button>
+                      </div>
+                    </div>
+                  </li>
+                </ul>
+              </div>
+              <div class="modal-footer">
+                <div class="u-flex u-main-end u-gap-16">
+                  <button class="button is-text"><span class="text">Button</span></button>
+                  <button class="button is-secondary"><span class="text">Button</span></button>
                 </div>
               </div>
-              <footer class="p-6">
-                <div class="flex items-center justify-start flex-wrap -mb-3">
-                  <button
-                    class="inline-flex justify-center items-center whitespace-nowrap focus:outline-none transition-colors focus:ring duration-150 border cursor-pointer rounded border-blue-600 dark:border-blue-500 ring-blue-300 dark:ring-blue-700 bg-blue-600 dark:bg-blue-500 text-white hover:bg-blue-700 hover:border-blue-700 hover:dark:bg-blue-600 hover:dark:border-blue-600 py-2 px-3 mr-3 last:mr-0 mb-3"
-                    type="button">
-                    <!--v-if--><span class="px-2">Done</span></button><!--v-if-->
-                </div>
-              </footer>
-            </div>
-          </div>
+            </form>
+          </dialog>
           <!-- edit company tab ends here -->
 
           <!-- recent transactions starts here -->
@@ -206,6 +212,7 @@ export default {
   data() {
     return {
       name: '',
+      // modal: true,
       companies: []
     }
   },
