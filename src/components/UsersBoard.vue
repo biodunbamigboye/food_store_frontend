@@ -37,7 +37,7 @@
                   <label class="block font-bold mb-2">Names</label>
                   <div class="grid grid-cols-1 gap-3 md:grid-cols-2">
                     <div class="relative">
-                      <input placeholder="First_name" type="text"
+                      <input placeholder="First name" type="text"
                         class="inp px-8 py-2 max-w-full focus:ring focus:outline-none border-gray-700 rounded w-full dark:placeholder-gray-400 h-12 border bg-white dark:bg-slate-800 pl-10"
                         v-model="firsName" />
                       <span
@@ -50,7 +50,7 @@
                       </span>
                     </div>
                     <div class="relative">
-                      <input placeholder="Second_name" type="text"
+                      <input placeholder="Second name" type="text"
                         class="inp px-3 py-2 max-w-full focus:ring focus:outline-none border-gray-700 rounded w-full dark:placeholder-gray-400 h-12 border bg-white dark:bg-slate-800 pl-10"
                         v-model="lastName" />
                       <span
@@ -97,17 +97,26 @@
                 </div>
                 <div class="mb-6 last:mb-0">
                   <label class="block font-bold mb-2">Usertype and company</label>
-                  <div class="grid grid-cols-1 gap-3 md:grid-cols-2">
-                    <div class="relative">
-                      <select
-                        class="inp px-3 py-2 max-w-full focus:ring focus:outline-none border-gray-700 rounded w-full dark:placeholder-gray-400 h-12 border bg-white dark:bg-slate-800">
-                        <!-- <option value="absolute">Active</option> -->
+                  <div class="grid grid-cols-1 gap-3 md:grid-cols-2">          
+                    <div class="select">
+                      <select name="pets" id="pet-select" v-model="type">
+                        <option value="">Select User type</option>
+                        <option value="sales_rep">Sales rep</option>
+                        <option value="admin">Admin</option>
+                        <option value="super_admin">Super Admin</option>
                       </select>
+                      <span class="icon-cheveron-down" aria-hidden="true"></span>
                     </div>
-                    <div class="relative">
-                      <select
-                        class="px-3 py-2 max-w-full focus:ring focus:outline-none border-gray-700 rounded w-full dark:placeholder-gray-400 h-12 border bg-white dark:bg-slate-800"></select><!--v-if-->
-                    </div>
+                    <div class="select">
+                        <select name="pets" id="pet-select">
+                          <!-- <option value="">Select company</option>
+                          <option value="1">Option 1</option>
+                          <option value="2">Option 2</option> -->
+                        </select>
+                        <span class="icon-cheveron-down" aria-hidden="true"></span>
+                      </div>
+                    <div>
+                  </div>
                   </div>
                   <!--v-if-->
                 </div>
@@ -247,22 +256,25 @@ export default {
       email: "",
       phoneNumber: "",
       password: "",
-      confirmPassword: ""
+      confirmPassword: "",
+      type:null,
     }
   },
   mounted() { 
     this.getUsers();
+    this.getCompanies();
   },
   methods: {
     async createUser() {
       try {
         let response = await axiosClient.post('/users', {
-          firstName: this.firstName,
+          first_name: this.firstName,
           lastName: this.lastName,
           email: this.email,
           phoneNumber: this.phoneNumber,
           password: this.password,
-          confirmPassword: this.confirmPassword
+          confirmPassword: this.confirmPassword,
+          type : this.type
         })
         console.log(response)
         alert('create user')
@@ -274,7 +286,16 @@ export default {
       try {
         let response = await axiosClient.get('/users')
         console.log(response)
-        // this.users = response.data.data.allUser.data
+        // this.users = response.data.data 
+      } catch (error) {
+        console.log(error)
+      }
+    },
+    async getCompanies() {
+      try {
+        let response = await axiosClient.get('/company')
+        console.log(response)
+        this.companies = response.data.data.allCompany.data
       } catch (error) {
         console.log(error)
       }
@@ -282,7 +303,7 @@ export default {
   }
 }
 </script>
-
+ 
 <style>
 .inp {
   padding-left: 40px;
