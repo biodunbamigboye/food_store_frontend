@@ -83,7 +83,7 @@
               </footer>
             </div>
           </div> -->
-          
+
           <!-- edit company tab here -->
           <div class="flex z-50 items-center flex-col justify-center overflow-hidden fixed inset-0" style="display: none">
             <div
@@ -247,8 +247,6 @@ export default {
 
     async deleteCompany(uuid) {
       try {
-        const response = await axiosClient.delete(`/company/${uuid}`)
-        console.log(response)
         this.$swal({
           title: 'Are you sure?',
           text: "You won't be able to revert this!",
@@ -257,12 +255,14 @@ export default {
           confirmButtonColor: '#3085d6',
           cancelButtonColor: '#d33',
           confirmButtonText: 'Yes, delete it!'
-        }).then((result) => {
+        }).then(async (result) => {
           if (result.isConfirmed) {
+            const response = await axiosClient.delete(`/company/${uuid}`)
+            console.log(response)
             this.$swal('Deleted!', 'Company has been deleted.', 'success')
+            this.getCompanies();
           }
         })
-        this.getCompanies()
       } catch (error) {
         console.log(error)
         this.$swal({
@@ -273,7 +273,7 @@ export default {
         })
       }
     },
-    editCompany (){}
+    editCompany() { }
   }
 }
 </script>
