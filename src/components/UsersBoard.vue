@@ -39,7 +39,7 @@
                     <div class="relative">
                       <input placeholder="First name" type="text"
                         class="inp px-8 py-2 max-w-full focus:ring focus:outline-none border-gray-700 rounded w-full dark:placeholder-gray-400 h-12 border bg-white dark:bg-slate-800 pl-10"
-                        v-model="firsName" />
+                        v-model="firstName" />
                       <span
                         class="inline-flex justify-center items-center w-10 h-12 absolute top-0 left-0 z-10 pointer-events-none text-gray-500 dark:text-slate-400">
                         <svg viewBox="0 0 24 24" width="16" height="16" class="inline-block">
@@ -81,9 +81,9 @@
                       </span>
                     </div>
                     <div class="relative">
-                      <input placeholder="Phone no" type="number"
+                      <input placeholder="Phone no" type="text"
                         class="inp px-3 py-2 max-w-full focus:ring focus:outline-none border-gray-700 rounded w-full dark:placeholder-gray-400 h-12 border bg-white dark:bg-slate-800 pl-10"
-                        v-model="phoneNumber" />
+                        v-model="phone" />
                       <span
                         class="inline-flex justify-center items-center w-10 h-12 absolute top-0 left-0 z-10 pointer-events-none text-gray-500 dark:text-slate-400"><svg
                           viewBox="0 0 24 24" width="16" height="16" class="inline-block">
@@ -108,9 +108,9 @@
                       <span class="icon-cheveron-down" aria-hidden="true"></span>
                     </div>
                     <div class="select">
-                      <select name="pets" id="pet-select">
+                      <select name="pets" id="pet-select" v-model="company">
                         <option value="">Select Company</option>
-                        <option value="index" v-for="item in companies" :key="item.uuid">
+                        <option :value="item.uuid" v-for="item in companies" :key="item.uuid">
                           {{ item.name }}
                         </option>
                       </select>
@@ -208,7 +208,7 @@
                           <div class="text"><span class="text">{{ item.last_name }}</span></div>
                         </td>
                         <td class="table-col is-only-desktop" data-title="Amount" >
-                          <span class="" v-for="company in companies" :key="company.uuid">{{ company.name }}</span>
+                          <span class="text" v-if="selectedCompany">{{ selectedCompany.name }}</span>
                         </td>
                         <td class="table-col is-only-desktop" data-title="Date">
                           <time class="text">{{ item.type }}</time>
@@ -243,20 +243,27 @@ export default {
   components: { HeaderNav },
   data() {
     return {
-      firsName: '',
+      firstName: '',
       lastName: '',
       email: '',
-      phoneNumber: '',
+      phone: '',
       password: '',
       confirmPassword: '',
       type: null,
       companies: [],
+      company: null,
       users: []
     }
   },
   mounted() {
     this.getUsers()
     this.getCompanies()
+  },
+  computed:{
+    selectedCompany(){
+     if(!this.company) return null;
+     return this.companies.find( company => company.uuid === this.company)
+    },
   },
   methods: {
     async createUser() {
@@ -265,25 +272,35 @@ export default {
           first_name: this.firstName,
           last_name: this.lastName,
           email: this.email,
-          phone  : this.phoneNumber,
+          phone: this.phone,
           password: this.password,
-          confirmPassword: this.confirmPassword,
+          password_confirmation: this.confirmPassword,
           type: this.type,
-          companies: this.companies
+          company: this.company
         })
         console.log(response)
         this.firstName = ''
         this.lastName = ''
         this.email = ''
-        this.phoneNumber = ''
+        this.phone = ''
+        this.password=''
         this.confirmPassword = ''
         this.type = ''
-        this.companies = ''
-
-        this.getUsers()
-        this.getCompanies()
+        this.company=''
+        this.$swal({
+          icon: 'success',
+          title: 'Successful',
+          text: 'You have successfully create user'
+        })
+        this.getUsers();
       } catch (error) {
         console.log(error)
+        this.$swal({
+          icon: 'error',
+          title: 'Oops...',
+          text: 'Something went wrong!',
+          footer: '<a href="">Why do I have this issue?</a>'
+        })
       }
     },
     async getUsers() {
@@ -310,7 +327,7 @@ export default {
             const response = await axiosClient.delete(`/users/${uuid}`)
             console.log(response)
             this.$swal('Deleted!', 'Company has been deleted.', 'success')
-            this.getCompanies();
+            this.getUsers();
           }
         })
       } catch (error) {
