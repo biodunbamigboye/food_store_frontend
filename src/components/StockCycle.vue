@@ -162,12 +162,56 @@
 </template>
 
 <script>
-import HeaderNav from './HeaderNav.vue'
+import HeaderNav from './HeaderNav.vue';
+import { axiosClient } from '../plugins/http';
+
 export default {
-  components: { HeaderNav }
+  components: { HeaderNav },
+  data () {
+    return {
+      stock_cycles: []
+    }
+  },
+  computed: {
+
+  },
+  mounted() {
+    this.getStockCycles();
+  },
+  methods:{
+    async createStockCycle(){
+      try {
+        let response = await axiosClient.post('/stock-cycle', { name: this.name })
+        console.log(response)
+        this.name = ''
+        this.$swal({
+          icon: 'success',
+          title: 'Successful',
+          text: 'You created company successfully'
+        })
+        this.getStockCycles()
+      } catch (error) {
+        console.log(error)
+        this.$swal({
+          icon: 'error',
+          title: 'Oops...',
+          text: 'Something went wrong!',
+          footer: '<a href="">Why do I have this issue?</a>'
+        })
+      }
+    },
+    async getStockCycles() {
+      try {
+        let response = await axiosClient.get('/stock-cycle')
+        console.log(response)
+        this.stock_cycles = response.data.data.allStock.data
+      } catch (error) {
+        console.log(error)
+      }
+    },
+  }
 }
 </script>
 
 <style>
-
 </style>
