@@ -169,12 +169,19 @@ export default {
     async createStock() {
       const response = await axiosClient.post('/stock', {
         name: this.name,
-        company_id: this.company_id,
+        company: this.company,
         status: this.status,
         rol: this.rol,
         unit_available: this.unit_available,
         unit_sold: this.unit_sold
       })
+      this.name = ''
+      this.company = ''
+      this.status = ''
+      this.status = ''
+      this.rol = ''
+      this.unit_available = ''
+      this.unit_sold = ''
       console.log(response)
       this.getStocks();
     },
@@ -183,12 +190,12 @@ export default {
         const response = await axiosClient.get('/stock')
         console.log(response)
         this.stocks = response.data.data.allStocks
-      } catch (err) {
-        console.log(err)
+      } catch (error) {
+        console.log(error)
       }
     },
     async getCompanies() {
-      try {
+      try {   
         let response = await axiosClient.get('/company')
         console.log(response)
         this.companies = response.data.data.allCompany.data
@@ -200,4 +207,6 @@ export default {
 }
 </script>
 
-<style></style>
+<style>
+
+</style>
