@@ -176,6 +176,7 @@ export default {
         unit_sold: this.unit_sold
       })
       console.log(response)
+      this.getStocks();
     },
     async getStocks() {
       try {
