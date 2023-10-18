@@ -173,8 +173,8 @@
                     <thead class="table-thead">
                       <tr class="table-row">
                         <th class="table-thead-col" style="--p-col-width: 80">
-                        <span class="eyebrow-heading-3">ID</span>
-                      </th>
+                          <span class="eyebrow-heading-3">No</span>
+                        </th>
                         <th class="table-thead-col" style="--p-col-width: 150">
                           <span class="eyebrow-heading-3">Firstname</span>
                         </th>
@@ -207,7 +207,7 @@
                         <td class="table-col is-only-desktop" data-title="Details">
                           <div class="text"><span class="text">{{ item.last_name }}</span></div>
                         </td>
-                        <td class="table-col is-only-desktop" data-title="Amount" >
+                        <td class="table-col is-only-desktop" data-title="Amount">
                           <span class="text" v-if="selectedCompany">{{ selectedCompany.name }}</span>
                         </td>
                         <td class="table-col is-only-desktop" data-title="Date">
@@ -215,13 +215,13 @@
                         </td>
                         <td class="table-col u-overflow-visible">
                           <div class="u-flex">
-                          <button class="button is-text is-only-icon" @click="editUser">
-                            <span class="icon-pencil" aria-hidden="true"></span>
-                          </button>
-                          <button class="button is-text is-only-icon" type="submit" @click="deleteUser(item.uuid)">
-                            <span class="icon-trash" aria-hidden="true"></span>
-                          </button>
-                        </div>
+                            <button class="button is-text is-only-icon" @click="editUser">
+                              <span class="icon-pencil" aria-hidden="true"></span>
+                            </button>
+                            <button class="button is-text is-only-icon" type="submit" @click="deleteUser(item.uuid)">
+                              <span class="icon-trash" aria-hidden="true"></span>
+                            </button>
+                          </div>
                         </td>
                       </tr>
                     </tbody>
@@ -259,10 +259,10 @@ export default {
     this.getUsers()
     this.getCompanies()
   },
-  computed:{
-    selectedCompany(){
-     if(!this.company) return null;
-     return this.companies.find( company => company.uuid === this.company)
+  computed: {
+    selectedCompany() {
+      if (!this.company) return null;
+      return this.companies.find(company => company.uuid === this.company)
     },
   },
   methods: {
@@ -283,10 +283,10 @@ export default {
         this.lastName = ''
         this.email = ''
         this.phone = ''
-        this.password=''
+        this.password = ''
         this.confirmPassword = ''
         this.type = ''
-        this.company=''
+        this.company = ''
         this.$swal({
           icon: 'success',
           title: 'Successful',
@@ -312,7 +312,7 @@ export default {
         console.log(error)
       }
     },
-    async deleteUser(uuid) { 
+    async deleteUser(uuid) {
       try {
         this.$swal({
           title: 'Are you sure?',
