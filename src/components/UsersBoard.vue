@@ -256,8 +256,8 @@ export default {
     }
   },
   mounted() {
-    this.getUsers()
-    this.getCompanies()
+    this.getUsers();
+    this.getCompanies();
   },
   computed: {
     selectedCompany() {
