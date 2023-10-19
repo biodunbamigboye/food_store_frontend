@@ -145,7 +145,7 @@
                   <thead class="table-thead">
                     <tr class="table-row">
                       <th class="table-thead-col" style="--p-col-width: 100">
-                        <span class="eyebrow-heading-3">ID</span>
+                        <span class="eyebrow-heading-3">No</span>
                       </th>
                       <th class="table-thead-col is-only-desktop" style="--p-col-width: 150">
                         <span class="eyebrow-heading-3">Company name</span>
@@ -177,7 +177,7 @@
                         <span class="tag">{{}}</span>
                       </td>
                       <td class="table-col is-only-desktop" data-title="Date">
-                        <time class="text">{{ item.created_at }}</time>
+                        <span class="text">{{ item.created_at }}</span>
                       </td>
                       <td class="table-col u-overflow-visible">
                         <div class="u-flex">

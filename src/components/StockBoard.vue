@@ -121,7 +121,7 @@
                   <time class="text">{{ item.unit_available }}</time>
                 </td>
                 <td class="table-col is-only-desktop" data-title="Date">
-                  <time class="text">{{ item.rol }}</time>
+                  <span class="text">{{ item.rol }}</span>
                 </td>
                 <td class="table-col u-overflow-visible">
                   <div class="u-flex">

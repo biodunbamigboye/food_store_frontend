@@ -202,7 +202,7 @@
                         <td class="table-col" data-title="Refrences">
                           <div class="u-inline-flex u-cross-center u-gap-12">
                             <span class="text u-break-word u-line-height-1-5">{{ item.first_name }}</span>
-                          </div>
+                          </div> 
                         </td>
                         <td class="table-col is-only-desktop" data-title="Details">
                           <div class="text"><span class="text">{{ item.last_name }}</span></div>
@@ -211,7 +211,7 @@
                           <span class="text" v-if="selectedCompany">{{ selectedCompany.name }}</span>
                         </td>
                         <td class="table-col is-only-desktop" data-title="Date">
-                          <time class="text">{{ item.type }}</time>
+                          <span class="text">{{ item.type }}</span>
                         </td>
                         <td class="table-col u-overflow-visible">
                           <div class="u-flex">
