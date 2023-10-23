@@ -202,7 +202,35 @@ export default {
       } catch (error) {
         console.log(error);
       }
-    }
+    },
+    async deleteStock(uuid) {
+      try {
+        this.$swal({
+          title: 'Are you sure?',
+          text: "You won't be able to revert this!",
+          icon: 'warning',
+          showCancelButton: true,
+          confirmButtonColor: '#3085d6',
+          cancelButtonColor: '#d33',
+          confirmButtonText: 'Yes, delete it!'
+        }).then(async (result) => {
+          if (result.isConfirmed) {
+            const response = await axiosClient.delete(`/stock/${uuid}`)
+            console.log(response)
+            this.$swal('Deleted!', 'Company has been deleted.', 'success')
+            this.getCompanies();
+          }
+        })
+      } catch (error) {
+        console.log(error)
+        this.$swal({
+          icon: 'error',
+          title: 'Oops...',
+          text: 'Something went wrong!',
+          footer: '<a href="">Why do I have this issue?</a>'
+        })
+      }
+    },
   }
 }
 </script>
