@@ -216,7 +216,7 @@ export default {
         }).then(async (result) => {
           if (result.isConfirmed) {
             const response = await axiosClient.delete(`/stock/${uuid}`)
-            console.log(response)
+            console.log(response);
             this.$swal('Deleted!', 'Company has been deleted.', 'success')
             this.getCompanies();
           }
