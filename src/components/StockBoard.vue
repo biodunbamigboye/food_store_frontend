@@ -188,7 +188,7 @@ export default {
     async getStocks() {
       try {
         const response = await axiosClient.get('/stock')
-        console.log(response)
+        console.log(response);
         this.stocks = response.data.data.allStocks
       } catch (error) {
         console.log(error);
@@ -197,7 +197,7 @@ export default {
     async getCompanies() {
       try {
         let response = await axiosClient.get('/company')
-        console.log(response)
+        console.log(response);
         this.companies = response.data.data.allCompany.data
       } catch (error) {
         console.log(error);
