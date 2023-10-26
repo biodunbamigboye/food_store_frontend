@@ -182,7 +182,7 @@ export default {
     async createStockCycle(){
       try {
         let response = await axiosClient.post('/stock-cycle', { name: this.name })
-        console.log(response)
+        console.log(response);
         this.name = ''
         this.$swal({
           icon: 'success',
@@ -203,7 +203,7 @@ export default {
     async getStockCycles() {
       try {
         let response = await axiosClient.get('/stock-cycle')
-        console.log(response)
+        console.log(response);
         this.stock_cycles = response.data.data.allStock.data
       } catch (error) {
         console.log(error)
