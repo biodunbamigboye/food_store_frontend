@@ -206,7 +206,7 @@ export default {
         console.log(response);
         this.stock_cycles = response.data.data.allStock.data
       } catch (error) {
-        console.log(error)
+        console.log(error);
       }
     },
   }
