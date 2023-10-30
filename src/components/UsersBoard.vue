@@ -108,9 +108,10 @@
                       <span class="icon-cheveron-down" aria-hidden="true"></span>
                     </div>
                     <div class="select">
-                      <select name="pets" id="pet-select" v-model="company">
+                      <label class="block font-bold mb-2">Company</label>
+                      <select name="pets" id="pet-select" v-model="companyId">
                         <option value="">Select Company</option>
-                        <option :value="item.uuid" v-for="item in companies" :key="item.uuid">
+                        <option :value="item.id" v-for="item in companies" :key="item.uuid">
                           {{ item.name }}
                         </option>
                       </select>
@@ -193,7 +194,7 @@
                       </tr>
                     </thead>
                     <tbody class="table-tbody">
-                      <tr class="table-row" v-for="(item, index) in users" :key="item.uuid">
+                      <tr class="table-row" v-for="(item, index) in usersWithCompany" :key="item.uuid">
                         <td class="table-col" data-title="Refrences">
                           <div class="u-inline-flex u-cross-center u-gap-12">
                             <span class="text u-break-word u-line-height-1-5">{{ index + 1 }}</span>
@@ -208,7 +209,7 @@
                           <div class="text"><span class="text">{{ item.last_name }}</span></div>
                         </td>
                         <td class="table-col is-only-desktop" data-title="Amount">
-                          <span class="text" v-if="selectedCompany">{{ selectedCompany.name }}</span>
+                          <span class="text" v-if="item.company">{{ item.company.name }}</span>
                         </td>
                         <td class="table-col is-only-desktop" data-title="Date">
                           <span class="text">{{ item.type }}</span>
@@ -252,6 +253,7 @@ export default {
       type: null,
       companies: [],
       company: null,
+      companyId: null,
       users: []
     }
   },
@@ -264,11 +266,21 @@ export default {
       if (!this.company) return null;
       return this.companies.find(company => company.uuid === this.company)
     },
+    usersWithCompany(){
+        if(this.companies.length === 0) {
+          return this.users.map( user => ({...user, company: null}))
+        }
+
+        return this.users.map(user => {
+          user.company = user.company_id ? this.companies.find( c => c.id === user.company_id) : null
+          return user;
+        })
+    },
   },
   methods: {
     async createUser() {
       try {
-        let response = await axiosClient.post('/users', {
+        await axiosClient.post('/users', {
           first_name: this.firstName,
           last_name: this.lastName,
           email: this.email,
@@ -276,9 +288,8 @@ export default {
           password: this.password,
           password_confirmation: this.confirmPassword,
           type: this.type,
-          company: this.company
+          company_id: this.companyId
         })
-        console.log(response)
         this.firstName = ''
         this.lastName = ''
         this.email = ''
@@ -298,7 +309,7 @@ export default {
         this.$swal({
           icon: 'error',
           title: 'Oops...',
-          text: 'Something went wrong!',
+          text: error?.response?.data?.message ?? 'Something went wrong!',
           footer: '<a href="">Why do I have this issue?</a>'
         })
       }
