@@ -174,7 +174,7 @@
                         </div>
                       </td>
                       <td class="table-col is-only-desktop" data-title="Amount">
-                        <span class="tag">{{}}</span>
+                        <span class="tag">{{item.users_count}}</span>
                       </td>
                       <td class="table-col is-only-desktop" data-title="Date">
                         <span class="text">{{ item.created_at }}</span>
@@ -246,7 +246,7 @@ export default {
       try {
         let response = await axiosClient.get('/company')
         console.log(response)
-        this.companies = response.data.data.allCompany.data
+        this.companies = response.data.data.allCompany
       } catch (error) {
         console.log(error)
       }

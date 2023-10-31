@@ -108,7 +108,7 @@
                       <span class="icon-cheveron-down" aria-hidden="true"></span>
                     </div>
                     <div class="select">
-                      <label class="block font-bold mb-2">Company</label>
+                      <!-- <label class="block font-bold mb-2">Company</label> -->
                       <select name="pets" id="pet-select" v-model="companyId">
                         <option value="">Select Company</option>
                         <option :value="item.id" v-for="item in companies" :key="item.uuid">
@@ -355,7 +355,7 @@ export default {
       try {
         let response = await axiosClient.get('/company')
         console.log(response)
-        this.companies = response.data.data.allCompany.data
+        this.companies = response.data.data.allCompany
       } catch (error) {
         console.log(error)
       }
